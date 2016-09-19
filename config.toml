@@ -1,0 +1,10 @@
+baseurl = "http://devops.jakshi.com/"
+disablePathToLower = false
+languageCode = "en-us"
+title = "Yet another one DevOps blog"
+theme = "hugo-octopress"
+
+# Make tags and categories work
+[indexes]
+    tag = "tags"
+    category = "categories"

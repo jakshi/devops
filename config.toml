@@ -3,9 +3,24 @@ disablePathToLower = false
 languageCode = "en-us"
 title = "Yet another one DevOps blog"
 theme = "hugo-octopress"
+canonifyurls = true
 
 # Number of blog posts displayed in each page
 paginate = 10
+
+# Keep it as false please, the css file contains the code for highlighting
+pygmentsuseclasses = false
+
+# If nothing is set, then solarized_light is used
+# Other styles can be viewed in [http://pygments.org/](http://pygments.org/)
+pygmentsstyle = "solarized_dark"
+
+# Highlight shortcode and code fences (```) will be treated similarly
+pygmentscodefences = true
+
+# pygments options can be added here
+# Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
+# for example: pygmentsoptions = "linenos=true"
 
 [permalinks]
 post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the old ones
@@ -50,20 +65,6 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     # Populate this with your own search keywords - these will appear in the meta tags
     # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
-    # Keep it as false please, the css file contains the code for highlighting
-    pygmentsuseclasses = false
-
-    # If nothing is set, then solarized_light is used
-    # Other styles can be viewed in [http://pygments.org/](http://pygments.org/)
-    pygmentsstyle = "solarized_dark"
-
-    # Highlight shortcode and code fences (```) will be treated similarly
-    pygmentscodefences = true
-
-    # pygments options can be added here
-    # Hugo supports these pygments options: style, encoding, noclasses, hl_lines, linenos
-    # for example: pygmentsoptions = "linenos=true"
-
     sidebarMenuEnabled = true
 
     github = "https://github.com/jakshi"
@@ -74,13 +75,15 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     hrefTargetBlank = true # open the external links in a new window
     fractions = false
 
-[[menu.main]]
-    Name = "Blog"
-    URL = "/"
-    weight = -10
+[menu]
+  [[menu.main]]
+      Name = "Blog"
+      URL = "/"
+      weight = -10
 
-[[menu.main]]
-    Name = "About me"
-    URL = "/"
-    weight = -5
+  [[menu.main]]
+      Name = "About me"
+      identifier = "about"
+      url = "/about/"
+      weight = -5
 

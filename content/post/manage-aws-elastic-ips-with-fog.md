@@ -1,27 +1,25 @@
----
-layout: post
-title: "Manage AWS Elastic IPs with fog"
-date: 2013-06-03 19:25
-comments: true
-categories: 
-- technical
-- aws
-- amazon
-- fog
-- ruby
----
++++
+date = "2013-06-03T19:25:54+07:00"
+description = ""
+draft = false
+title = "Manage AWS Elastic IPs with fog"
+categories = ["technical", "aws", "amazon", "fog", "ruby"]
+
++++
 
 # Connect to AWS API with fog.
 
-    require 'fog'
+```
+require 'fog'
 
-    c = Fog::Compute.new(
-                     :provider => 'AWS',
-                     :aws_access_key_id => 'Your AWS access key',
-                     :aws_secret_access_key => 'Your AWS secret key',
-                     :region => 'us-east-1' )
+c = Fog::Compute.new(
+                 :provider => 'AWS',
+                 :aws_access_key_id => 'Your AWS access key',
+                 :aws_secret_access_key => 'Your AWS secret key',
+                 :region => 'us-east-1' )
+```
 
-<!-- more -->
+<!--more-->
 
 # Associate Elastic IP
 

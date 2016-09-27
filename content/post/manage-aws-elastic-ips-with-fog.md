@@ -4,7 +4,6 @@ description = ""
 draft = false
 title = "Manage AWS Elastic IPs with fog"
 categories = ["technical", "aws", "amazon", "fog", "ruby"]
-
 +++
 
 # Connect to AWS API with fog.

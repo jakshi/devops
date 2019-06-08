@@ -48,7 +48,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     searchEngineURL = "https://www.google.com/search"
 
     # Text of the "Continue Reading" label. &rarr; == right arrow, but it gets messed up in the string so we will add it to index.html manually
-    continueReadingText = "Would you like to know more?"
+    continueReadingText = "Read on  &rarr;"
 
     # Google analytics code
     googleAnalytics = "google analytics"

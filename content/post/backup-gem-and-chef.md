@@ -1,17 +1,10 @@
----
-layout: post
-title: "Backup gem and Chef"
-date: 2014-04-24 12:48
-comments: true
-categories: 
-  - technical
-  - aws
-  - amazon
-  - chef
-  - devops
-  - ruby
-  - backup
----
++++
+date = "2014-04-24T12:48:00+07:00"
+description = ""
+draft = false
+title = "Backup gem and Chef"
+categories = ["technical", "aws", "amazon", "chef", "devops", "ruby", "backup"]
++++
 
 # Intro
 

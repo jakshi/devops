@@ -1,14 +1,10 @@
----
-layout: post
-title: "Chef shortcuts"
-date: 2014-11-21 13:16
-comments: true
-categories: 
-  - chef
-  - technical
-  - knife
-  - devops
----
++++
+date = "2014-11-21T13:16:00+07:00"
+description = ""
+draft = false
+title = "Chef shortcuts"
+categories = ["technical", "chef", "knife", "devops"]
++++
 
 # Add a recipe to the end of run list on certain environment
 

@@ -1,14 +1,10 @@
----
-layout: post
-title: "Accessing chef attributes in serverspec tests"
-date: 2014-05-12 01:45
-comments: true
-categories:
-  - chef
-  - technical
-  - serverspec
-  - devops
----
++++
+date = "2014-05-12T01:45:00+07:00"
+description = ""
+draft = false
+title = "Accessing chef attributes in serverspec tests"
+categories = ["technical", "chef", "serverspec", "devops"]
++++
 
 I presume that you are familiar with:
 

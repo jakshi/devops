@@ -1,13 +1,10 @@
----
-layout: post
-title: "rewriting your email in git commits"
-date: 2014-01-25 18:57
-comments: true
-categories: 
-- techincal
-- git
-- dirty tricks
----
++++
+date = "2014-01-25T18:57:00+07:00"
+description = ""
+draft = false
+title = "Rewriting your email in git commits"
+categories = ["technical", "git", "amazon", "ruby"]
++++
 
 Sometimes you need to rewrite your email in your commits in some git repository.
 Do it with command:

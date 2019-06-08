@@ -1,15 +1,10 @@
----
-layout: post
-title: "Chef cookbook templating with cookiecutter"
-date: 2014-05-03 01:21
-comments: true
-categories: 
-- chef
-- cookiecutter
-- python
-- template
-- technical
----
++++
+date = "2014-05-03T01:21:00+07:00"
+description = ""
+draft = false
+title = "Chef cookbook templating with cookiecutter"
+categories = ["technical", "chef", "cookiecutter", "python", "template"]
++++
 
 One of the challenges in chef cookbook development - create a comprehensive cookbook template.
 

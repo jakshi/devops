@@ -1,12 +1,10 @@
----
-layout: post
-title: "Rewriting git commit"
-date: 2014-07-14 00:13
-comments: true
-categories: 
-- techincal
-- git
----
++++
+date = "2014-07-14T00:13:00+07:00"
+description = ""
+draft = false
+title = "Manage AWS Elastic IPs with AWS Ruby SDK"
+categories = ["technical", "git"]
++++
 
 Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.
 

@@ -67,9 +67,11 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     # defaultKeywords = ["keyword1" , "keyword2" , "keyword3" , "keyword4"]
 
     # Set to true to hide ReadingTime on posts
-    disableReadingTime = false    sidebarMenuEnabled = true
+    disableReadingTime = false
 
-  # Set to true to disable downloading of remote Google fonts
+    sidebarMenuEnabled = true
+
+    # Set to true to disable downloading of remote Google fonts
     disableGoogleFonts = false
 
     github = "https://github.com/jakshi"
@@ -91,4 +93,3 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
       identifier = "about"
       url = "/about/"
       weight = -5
-

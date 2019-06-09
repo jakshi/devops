@@ -104,4 +104,8 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
       identifier = "about"
       url = "/about/"
       weight = -5
-
+  [[menu.main]]
+      Name = "Wiki"
+      identifier = "wiki"
+      url = "https://github.com/jakshi/devops-wiki/wiki"
+      weight = -3

@@ -4,13 +4,16 @@ description = ""
 draft = false
 title = "Manage AWS Elastic IPs with AWS Ruby SDK"
 categories = ["technical", "git"]
+postsummary = """
+Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.
+
+Use case: You want to remove some files that you added with your commit.
+"""
 +++
 
 Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.
 
 Use case: You want to remove some files that you added with your commit.
-
-<!-- more -->
 
 # Find the commit
 

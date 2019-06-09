@@ -4,6 +4,17 @@ description = ""
 draft = false
 title = "Chef cookbook templating with cookiecutter"
 categories = ["technical", "chef", "cookiecutter", "python", "template"]
+postsummary = """
+One of the challenges in chef cookbook development - create a comprehensive cookbook template.
+
+Good cookbook template might:
+
+* standartize your cookbooks
+* fill them with convenient predefinitions
+* save your time. 
+
+If you are not python averse, you could find that [cookiecutter](https://github.com/audreyr/cookiecutter) pretty useful tool for creating your cookbooks templates. This article describes my experience in creating chef cookbook template with [cookiecutter](https://github.com/audreyr/cookiecutter).
+"""
 +++
 
 One of the challenges in chef cookbook development - create a comprehensive cookbook template.
@@ -15,8 +26,6 @@ Good cookbook template might:
 * save your time. 
 
 If you are not python averse, you could find that [cookiecutter](https://github.com/audreyr/cookiecutter) pretty useful tool for creating your cookbooks templates. This article describes my experience in creating chef cookbook template with [cookiecutter](https://github.com/audreyr/cookiecutter).
-
-<!-- more -->
 
 # Cookiecutter in nutshell
 

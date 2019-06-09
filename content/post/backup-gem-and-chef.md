@@ -4,6 +4,15 @@ description = ""
 draft = false
 title = "Backup gem and Chef"
 categories = ["technical", "aws", "amazon", "chef", "devops", "ruby", "backup"]
+postsummary = """
+# Intro
+
+* There's a nice tool for doing fast and easy backup to AWS S3: [backup gem](http://meskyanichi.github.io/backup/)
+* There should be done a lot of steps for setup a backup though.
+* So it could be automated with chef.
+* In this article I'll write log of creation backup gem's cookbook.
+* Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.
+"""
 +++
 
 # Intro
@@ -13,8 +22,6 @@ categories = ["technical", "aws", "amazon", "chef", "devops", "ruby", "backup"]
 * So it could be automated with chef.
 * In this article I'll write log of creation backup gem's cookbook.
 * Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.
-
-<!-- more -->
 
 # Chef application cookbook for backup gem
 ## Create a cookbook

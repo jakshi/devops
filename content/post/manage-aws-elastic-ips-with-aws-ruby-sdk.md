@@ -4,6 +4,16 @@ description = ""
 draft = false
 title = "Manage AWS Elastic IPs with AWS Ruby SDK"
 categories = ["technical", "aws", "amazon", "ruby"]
+postsummary = """
+I tried three ruby libs for managing Elastic IPs for AWS EC2.
+
+* fog
+* right_aws
+* Official Ruby AWS SDK.
+
+I wholeheartedly recommend Official AWS Ruby SDK, as most simple and easy to use.
+I also insert several examples of assigning Elastic IPs with AWS Ruby SDK:
+"""
 +++
 
 I tried three ruby libs for managing Elastic IPs for AWS EC2.
@@ -14,8 +24,6 @@ I tried three ruby libs for managing Elastic IPs for AWS EC2.
 
 I wholeheartedly recommend Official AWS Ruby SDK, as most simple and easy to use.
 I also insert several examples of assigning Elastic IPs with AWS Ruby SDK:
-
-<!--more-->
 
 # Connect to AWS API with AWS Ruby SDK.
 

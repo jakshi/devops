@@ -2,8 +2,24 @@
 date = "2014-11-21T13:16:00+07:00"
 description = ""
 draft = false
+markup = "md"
 title = "Chef shortcuts"
 categories = ["technical", "chef", "knife", "devops"]
+postsummary = """
+# Add a recipe to the end of run list on certain environment
+
+Test run, not actually add a recipe:
+
+```
+knife exec -E 'nodes.transform ("chef_environment:beta") {|n| puts n.run_list << "recipe[logentries_ng]" }'
+```
+
+Add a recipe for real:
+
+```
+knife exec -E 'nodes.transform ("chef_environment:beta") {|n| puts n.run_list << "recipe[logentries_ng]"; n.save }'
+```
+"""
 +++
 
 # Add a recipe to the end of run list on certain environment
@@ -19,8 +35,6 @@ Add a recipe for real:
 ```
 knife exec -E 'nodes.transform ("chef_environment:beta") {|n| puts n.run_list << "recipe[logentries_ng]"; n.save }'
 ```
-
-<!-- more -->
 
 # Add a recipe to the beginning of run list on certain environment
 

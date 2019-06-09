@@ -4,6 +4,16 @@ description = ""
 draft = false
 title = "Accessing chef attributes in serverspec tests"
 categories = ["technical", "chef", "serverspec", "devops"]
+postsummary = """
+I presume that you are familiar with:
+
+* Chef
+* test-kitchen
+* serverspec
+
+When you write serverspec integration tests, it would be great to have access to chef attributes of cookbook that you're testing.
+There's a fast and simple way to do this.
+"""
 +++
 
 I presume that you are familiar with:
@@ -14,8 +24,6 @@ I presume that you are familiar with:
 
 When you write serverspec integration tests, it would be great to have access to chef attributes of cookbook that you're testing.
 There's a fast and simple way to do this.
-
-<!-- more -->
 
 # Introduction
 

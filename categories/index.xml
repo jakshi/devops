@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Yet another one DevOps blog</title>
+    <link>http://verydevops.com/categories/</link>
+    <description>Recent content in Categories on Yet another one DevOps blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Nov 2014 13:16:00 +0700</lastBuildDate>
+    
+	<atom:link href="http://verydevops.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>chef</title>
+      <link>http://verydevops.com/categories/chef/</link>
+      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/chef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>http://verydevops.com/categories/devops/</link>
+      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knife</title>
+      <link>http://verydevops.com/categories/knife/</link>
+      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/knife/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>technical</title>
+      <link>http://verydevops.com/categories/technical/</link>
+      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/technical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>http://verydevops.com/categories/git/</link>
+      <pubDate>Mon, 14 Jul 2014 00:13:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>serverspec</title>
+      <link>http://verydevops.com/categories/serverspec/</link>
+      <pubDate>Mon, 12 May 2014 01:45:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/serverspec/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cookiecutter</title>
+      <link>http://verydevops.com/categories/cookiecutter/</link>
+      <pubDate>Sat, 03 May 2014 01:21:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/cookiecutter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>http://verydevops.com/categories/python/</link>
+      <pubDate>Sat, 03 May 2014 01:21:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>template</title>
+      <link>http://verydevops.com/categories/template/</link>
+      <pubDate>Sat, 03 May 2014 01:21:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/template/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amazon</title>
+      <link>http://verydevops.com/categories/amazon/</link>
+      <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>http://verydevops.com/categories/aws/</link>
+      <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>backup</title>
+      <link>http://verydevops.com/categories/backup/</link>
+      <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/backup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ruby</title>
+      <link>http://verydevops.com/categories/ruby/</link>
+      <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>http://verydevops.com/categories/network/</link>
+      <pubDate>Sun, 16 Jun 2013 13:55:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>notes</title>
+      <link>http://verydevops.com/categories/notes/</link>
+      <pubDate>Sun, 16 Jun 2013 13:55:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sysadmin</title>
+      <link>http://verydevops.com/categories/sysadmin/</link>
+      <pubDate>Sun, 16 Jun 2013 13:55:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/sysadmin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sysctl</title>
+      <link>http://verydevops.com/categories/sysctl/</link>
+      <pubDate>Sun, 16 Jun 2013 13:55:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/sysctl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fog</title>
+      <link>http://verydevops.com/categories/fog/</link>
+      <pubDate>Mon, 03 Jun 2013 19:25:54 +0700</pubDate>
+      
+      <guid>http://verydevops.com/categories/fog/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

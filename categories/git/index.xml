@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on Yet another one DevOps blog</title>
+    <link>http://verydevops.com/categories/git/</link>
+    <description>Recent content in git on Yet another one DevOps blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Jul 2014 00:13:00 +0700</lastBuildDate>
+    
+	<atom:link href="http://verydevops.com/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Manage AWS Elastic IPs with AWS Ruby SDK</title>
+      <link>http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</link>
+      <pubDate>Mon, 14 Jul 2014 00:13:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</guid>
+      <description>Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.
+Use case: You want to remove some files that you added with your commit.
+Find the commit git log --pretty=format:&#39;%h %ad | %s%d [%an]&#39; --graph --date=short  Let it be 4ca80f0.
+Remove files that you don&amp;rsquo;t want in the commit. git rebase -i 4ca80f0~1  Replace pick with edit and save file.</description>
+    </item>
+    
+    <item>
+      <title>Rewriting your email in git commits</title>
+      <link>http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/</link>
+      <pubDate>Sat, 25 Jan 2014 18:57:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/</guid>
+      <description>Sometimes you need to rewrite your email in your commits in some git repository. Do it with command:
+git filter-branch --env-filter &#39;if [ $GIT_AUTHOR_EMAIL = bad@email ]; then GIT_AUTHOR_EMAIL=correct@email; fi; export GIT_AUTHOR_EMAIL&#39;  For your collaborators this operatioin might be dangerous. According to Jakub Narębski collaborators will need to:
+ if they didn&amp;rsquo;t base their work on history pre-rewrite, just git reset --hard origin/master or just git pull origin (which should fast-forward).</description>
+    </item>
+    
+  </channel>
+</rss>

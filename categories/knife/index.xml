@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>knife on Yet another one DevOps blog</title>
+    <link>http://verydevops.com/categories/knife/</link>
+    <description>Recent content in knife on Yet another one DevOps blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Nov 2014 13:16:00 +0700</lastBuildDate>
+    
+	<atom:link href="http://verydevops.com/categories/knife/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chef shortcuts</title>
+      <link>http://verydevops.com/blog/2014-11-21-chef-shortcuts/</link>
+      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
+      
+      <guid>http://verydevops.com/blog/2014-11-21-chef-shortcuts/</guid>
+      <description>Add a recipe to the end of run list on certain environment Test run, not actually add a recipe:
+knife exec -E &#39;nodes.transform (&amp;quot;chef_environment:beta&amp;quot;) {|n| puts n.run_list &amp;lt;&amp;lt; &amp;quot;recipe[logentries_ng]&amp;quot; }&#39;  Add a recipe for real:
+knife exec -E &#39;nodes.transform (&amp;quot;chef_environment:beta&amp;quot;) {|n| puts n.run_list &amp;lt;&amp;lt; &amp;quot;recipe[logentries_ng]&amp;quot;; n.save }&#39;  Add a recipe to the beginning of run list on certain environment Test run, not actually add a recipe:
+knife exec -E &#39;nodes.</description>
+    </item>
+    
+  </channel>
+</rss>

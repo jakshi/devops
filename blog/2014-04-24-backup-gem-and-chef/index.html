@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="http://verydevops.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Backup gem and Chef</title>
+
+  
+  
+  <link rel="stylesheet" href="http://verydevops.com/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="http://verydevops.com/css/fork-awesome.min.css">
+  
+
+  
+  <link href="http://verydevops.com/favicon.png" rel="icon">
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Kostiantyn Lysenko">
+
+  
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://verydevops.com/">Yet another one DevOps blog</a></h1>
+    <h2>Ops and DevOps stories</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://verydevops.com/">» Blog</option>
+      
+        <option value="http://verydevops.com/contacts/">» Contacts</option>
+      
+        <option value="http://verydevops.com/about/">» About me</option>
+      
+        <option value="https://github.com/jakshi/devops-wiki/wiki">» Wiki</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://verydevops.com/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/contacts/" title="Contacts" >Contacts</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/about/" title="About me" >About me</a></li>
+    
+  
+    
+      <li><a href="https://github.com/jakshi/devops-wiki/wiki" title="Wiki" target="_blank">Wiki</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://verydevops.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://verydevops.com/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Apr 24, 2014
+     - 4 minute read 
+     - <a href="http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/aws/">aws </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/chef/">chef </a><a class="label" href="http://verydevops.com/categories/devops/">devops </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a><a class="label" href="http://verydevops.com/categories/backup/">backup </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Backup gem and Chef 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<h1 id="intro">Intro</h1>
+
+<ul>
+<li>There&rsquo;s a nice tool for doing fast and easy backup to AWS S3: <a href="http://meskyanichi.github.io/backup/" target="_blank">backup gem</a></li>
+<li>There should be done a lot of steps for setup a backup though.</li>
+<li>So it could be automated with chef.</li>
+<li>In this article I&rsquo;ll write log of creation backup gem&rsquo;s cookbook.</li>
+<li>Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.</li>
+</ul>
+
+<h1 id="chef-application-cookbook-for-backup-gem">Chef application cookbook for backup gem</h1>
+
+<h2 id="create-a-cookbook">Create a cookbook</h2>
+
+<p>mkdir example-backup
+   cd example-backup</p>
+
+<h2 id="create-metadata">Create metadata</h2>
+
+<pre><code>emacs metadata.rb
+</code></pre>
+
+<pre><code>name             'example-backup'
+maintainer       'John Smith'
+maintainer_email 'john@example.com'
+license          'Apache 2.0'
+description      'Installs/Configures example-backup'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.0.1'
+
+%w{ubuntu}.each do |os|
+  supports os
+end
+
+depends 'backup', '~&gt; 0.4.0'
+depends 'build-essential'
+depends 'cron', '= 1.3.8'
+</code></pre>
+
+<ul>
+<li>We will use &lsquo;backup&rsquo; gem for setupping backup.</li>
+<li>build-essential is necessary for installing gem&rsquo;s native extensions</li>
+<li>cron is restricted to 1.3.8 version, because last version of cron (1.3.10) was broken on the moment of writing this article.</li>
+<li>This example is for ubuntu 12.04 LTS only</li>
+</ul>
+
+<h2 id="attributes">Attributes</h2>
+
+<pre><code>emacs attributes/default.rb
+</code></pre>
+
+<pre><code>default['example']['backup']['s3-bucket'] = 'example.com.backup'
+override['build-essential']['compile_time'] = true
+override['backup']['dependencies'] = [['fog'],['aws-s3']]
+override['backup']['version'] = '4.0.1'
+override['backup']['path'] = '/opt/backup'
+</code></pre>
+
+<h2 id="templates">Templates</h2>
+
+<pre><code>emacs templates/default/config.rb.erb
+</code></pre>
+
+<pre><code># encoding: utf-8
+
+##
+# Backup v4.x Configuration
+#
+# Documentation: http://meskyanichi.github.io/backup
+# Issue Tracker: https://github.com/meskyanichi/backup/issues
+root_path '&lt;%= @root_path %&gt;'
+tmp_path '&lt;%= @tmp_path %&gt;'
+data_path '&lt;%= @data_path %&gt;'
+</code></pre>
+
+<h2 id="recipes">Recipes</h2>
+
+<h3 id="default">default</h3>
+
+<pre><code>emacs recipes/default.rb
+</code></pre>
+
+<pre><code>include_recipe 'example-backup::dependencies'
+include_recipe 'example-backup::backup'
+</code></pre>
+
+<h3 id="dependencies">dependencies</h3>
+
+<p>This recipe is to install dependenices that neccessary for backup gem to functioning.</p>
+
+<pre><code>emacs recipes/dependencies.rb
+</code></pre>
+
+<pre><code>include_recipe 'build-essential'
+
+%w{ruby1.9.1-full libopenssl-ruby1.9.1 libssl-dev zlib1g-dev}.each do |pkg|
+  package(pkg).run_action(:install)
+end
+
+# Make ruby19 default ruby interpreter
+# Ruby 1.8.x on Ubuntu 12.04 LTS have priority 50
+# Let's setup priority 400 for ruby 1.9.x
+bash 'ruby19_by_default' do
+  cwd '/tmp'
+  code &lt;&lt;-EOH
+  update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby1.9.1 400 --slave /usr/share/man/man1/ruby.1.gz ruby.1.gz /usr/share/man/man1/ruby1.9.1.1.gz --slave /usr/bin/erb erb /usr/bin/erb1.9.1 --slave /usr/share/man/man1/erb.1.gz erb.1.gz /usr/share/man/man1/erb1.9.1.1.gz --slave /usr/bin/irb irb /usr/bin/irb1.9.1 --slave /usr/share/man/man1/irb.1.gz irb.1.gz /usr/share/man/man1/irb1.9.1.1.gz --slave /usr/bin/rdoc rdoc /usr/bin/rdoc1.9.1 --slave /usr/share/man/man1/rdoc.1.gz rdoc.1.gz /usr/share/man/man1/rdoc1.9.1.1.gz --slave /usr/bin/ri ri /usr/bin/ri1.9.1 --slave /usr/share/man/man1/ri.1.gz ri.1.gz /usr/share/man/man1/ri1.9.1.1.gz --slave /usr/bin/testrb testrb /usr/bin/testrb1.9.1 --slave /usr/share/man/man1/testrb.1.gz testrb.1.gz /usr/share/man/man1/testrb1.9.1.1.gz
+EOH
+end
+
+chef_gem &quot;chef-rewind&quot;
+require 'chef/rewind'
+
+include_recipe 'backup'
+
+%w{keys .data logs}.each do |dir|
+  directory &quot;#{node['backup']['path']}/#{dir}&quot; do
+    action :create
+    recursive true
+  end
+end
+
+rewind :template =&gt; &quot;Backup config file&quot; do
+  source 'config.rb.erb'
+  cookbook_name 'example-backup'
+  variables({
+    :root_path =&gt; node['backup']['path'],
+    :tmp_path =&gt; '/tmp',
+    :data_path =&gt; &quot;#{node['backup']['path']}/.data&quot;
+  })
+end
+</code></pre>
+
+<ul>
+<li>Recipe installs ruby 1.9 and make it default.</li>
+<li>I include backup::default recipe, that will install backup, fog and aws-s3 gems, create backup config and some necessary dirs.</li>
+<li>Little trick. Last version of backup recipe doesn&rsquo;t support backup gem 4.x version.</li>
+<li>Difference is in the config file template.</li>
+<li>So I substitute backup&rsquo;s cookbook config file template (for 3.x version of backup gem) with my own config template for 4.x version of backup gem.</li>
+<li>I use chef-rewind gem for that</li>
+</ul>
+
+<h3 id="backup">backup</h3>
+
+<p>Action part of recipe. It will configure backup.</p>
+
+<pre><code>emacs recipes/backup.rb
+</code></pre>
+
+<pre><code>aws = data_bag_item('aws', 'backup')
+
+backup_model :www do
+  description &quot;backup of /var/www folder&quot;
+  definition &lt;&lt;-EOS
+before do
+  require 'aws/s3'
+  AWS::S3::Base.establish_connection!(:access_key_id =&gt; '#{aws['aws_access_key_id']}', :secret_access_key =&gt; '#{aws['aws_secret_access_key']}')
+  AWS::S3::Bucket.create('#{node['example']['backup']['s3-bucket']}')
+  AWS::S3::Base.disconnect!
+end
+
+split_into_chunks_of 50
+  
+store_with S3 do |s3|
+  s3.access_key_id = '#{aws['aws_access_key_id']}'
+  s3.secret_access_key = '#{aws['aws_secret_access_key']}'
+  s3.region = 'us-east-1'
+  s3.bucket = '#{node['example']['backup']['s3-bucket']}'
+  s3.path = '/'
+  s3.keep = 14
+  s3.fog_options = {
+    :path_style =&gt; true
+  }
+end
+
+##
+# Gzip [Compressor]
+#
+compress_with Gzip
+
+archive :www do |archive|
+  archive.add '/var/www/'
+  archive.tar_options '-p'
+end
+
+EOS
+  schedule({
+    :minute =&gt; '0',
+    :hour   =&gt; '1',
+  })
+  cron_options({
+    :path =&gt; '/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin'
+  })
+end
+</code></pre>
+
+<ul>
+<li>I get aws credentials from aws data bag.</li>
+<li>They could be loaded from other source, like attributes, anything you like.</li>
+<li>In backup model I create a before hook that will create amazon bucket for backups in case it doesn&rsquo;t exist.</li>
+<li>Then backup resource just describe backupping /var/www to Amazon S3 bucket, keep 14 backup, start every day on 01:00 AM.</li>
+</ul>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+<li>I presume that you use chef-server and you already have some chef repository, like <code>example-chef-repo</code>.</li>
+
+<li><p>Fill aws data bag with credentials</p>
+
+<pre><code>mkdir -p example-chef-repo/data_bags/aws
+emacs example-chef-repo/data_bags/aws/backup.json
+
+{
+&quot;id&quot;: &quot;backup&quot;,
+&quot;aws_access_key_id&quot;: &quot;AWS_ACCESS_KEY&quot;,
+&quot;aws_secret_access_key&quot;: &quot;AWS_SECRET_KEY&quot;
+}
+</code></pre></li>
+
+<li><p>It&rsquo;s better to use AWS_ACCESS_KEY and AWS_SECRET_KEY credentials of IAM user that has access to S3 only.</p></li>
+
+<li><p>Upload that data bag to your chef-server</p>
+
+<pre><code>knife data bag create aws
+knife data bag from file aws backup.json
+</code></pre></li>
+
+<li><p>If you don&rsquo;t have chef-server, rewrite recipe to use attributes, and set AWS credentials through attributes.</p></li>
+
+<li><p>And That&rsquo;s it - just add example-backup to your node run_list.</p>
+
+<pre><code>knife node run_list add node_name 'recipe[example-backup]'
+</code></pre></li>
+
+<li><p>And run <code>chef-client</code> on the node.</p></li>
+</ul>
+
+<h1 id="references">References</h1>
+
+<h2 id="cookbooks">cookbooks</h2>
+
+<ul>
+<li><a href="https://github.com/gofullstack/backup-cookbook" target="_blank">backup cookbook on github</a></li>
+<li><a href="https://github.com/damm/backup" target="_blank">backup lwrp cookbook on github</a></li>
+<li><a href="https://github.com/opscode-cookbooks/cron" target="_blank">cron cookbook on github</a></li>
+</ul>
+
+<h2 id="gems">gems</h2>
+
+<h3 id="chef-rewind-gem">chef-rewind gem</h3>
+
+<ul>
+<li><a href="https://github.com/bryanwb/chef-rewind" target="_blank">chef-rewind gem on github</a></li>
+</ul>
+
+<h3 id="backup-gem">backup gem</h3>
+
+<ul>
+<li><a href="http://meskyanichi.github.io/backup/v4/" target="_blank">backup gem v4.x documentation</a></li>
+</ul>
+
+<h3 id="aws-s3-gem">aws-s3 gem</h3>
+
+<ul>
+<li><a href="http://rubydoc.info/gems/aws-s3/0.6.3/frames" target="_blank">AWS::S3 module documentation</a></li>
+<li><a href="http://rubydoc.info/gems/aws-s3/0.6.3/AWS/S3/Service" target="_blank">AWS::S3::Service class documentation</a></li>
+<li><a href="http://rubydoc.info/gems/aws-s3/0.6.3/AWS/S3/Bucket" target="_blank">AWS::S3::Bucket class documentation</a></li>
+</ul>
+
+<h3 id="test-kitchen">test-kitchen</h3>
+
+<ul>
+<li><a href="https://github.com/test-kitchen/test-kitchen" target="_blank">test-kitchen gem on github</a></li>
+<li><a href="https://github.com/test-kitchen/kitchen-digitalocean" target="_blank">kitchen-digital ocean driver on github</a></li>
+</ul>
+
+<h3 id="berkshelf">berkshelf</h3>
+
+<ul>
+<li><a href="http://berkshelf.com/" target="_blank">berkshelf gem documentation</a></li>
+</ul>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Kostiantyn Lysenko</span></span>
+    
+    <time>Apr 24, 2014</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/" title="Rewriting your email in git commits">Rewriting your email in git commits</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/" title="Chef cookbook templating with cookiecutter">Chef cookbook templating with cookiecutter</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jakshi';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <img src="http://verydevops.com/img/me.png" alt="Kostiantyn Lysenko" />
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/jakshi" title="https://github.com/jakshi"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      
+      
+         
+      
+      <a target="_blank" href="http://ua.linkedin.com/in/konstantinlysenko" title="http://ua.linkedin.com/in/konstantinlysenko"><i class="fa fa-linkedin fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://www.facebook.com/fjakshi" title="https://www.facebook.com/fjakshi"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+    
+      <section class="odd">
+        
+        
+      </section>
+    
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/">Chef shortcuts</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/">Chef cookbook templating with cookiecutter</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Kostiantyn Lysenko - <a href="http://verydevops.com/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','google analytics'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="http://verydevops.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Manage AWS Elastic IPs with fog</title>
+
+  
+  
+  <link rel="stylesheet" href="http://verydevops.com/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="http://verydevops.com/css/fork-awesome.min.css">
+  
+
+  
+  <link href="http://verydevops.com/favicon.png" rel="icon">
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Kostiantyn Lysenko">
+
+  
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://verydevops.com/">Yet another one DevOps blog</a></h1>
+    <h2>Ops and DevOps stories</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://verydevops.com/">» Blog</option>
+      
+        <option value="http://verydevops.com/contacts/">» Contacts</option>
+      
+        <option value="http://verydevops.com/about/">» About me</option>
+      
+        <option value="https://github.com/jakshi/devops-wiki/wiki">» Wiki</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://verydevops.com/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/contacts/" title="Contacts" >Contacts</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/about/" title="About me" >About me</a></li>
+    
+  
+    
+      <li><a href="https://github.com/jakshi/devops-wiki/wiki" title="Wiki" target="_blank">Wiki</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://verydevops.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://verydevops.com/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Jun 3, 2013
+     - 2 minute read 
+     - <a href="http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/aws/">aws </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/fog/">fog </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Manage AWS Elastic IPs with fog 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<h1 id="connect-to-aws-api-with-fog">Connect to AWS API with fog.</h1>
+
+<pre><code>require 'fog'
+
+c = Fog::Compute.new(
+                 :provider =&gt; 'AWS',
+                 :aws_access_key_id =&gt; 'Your AWS access key',
+                 :aws_secret_access_key =&gt; 'Your AWS secret key',
+                 :region =&gt; 'us-east-1' )
+</code></pre>
+
+<h1 id="associate-elastic-ip">Associate Elastic IP</h1>
+
+<pre><code>eip = c.addresses.get('Your elastic IP address')
+c.associate_address(&quot;Your instance id&quot;,nil,nil,eip.allocation_id)
+</code></pre>
+
+<h1 id="disassociate-elastic-ip">Disassociate Elastic IP</h1>
+
+<pre><code>eip = c.describe_addresses('public-ip' =&gt; ['Your elastic IP address'])
+disassociate_address(nil,eip[:body][&quot;addressesSet&quot;][0][&quot;associationId&quot;])
+</code></pre>
+
+<h1 id="association-elastic-ip-script-example">Association Elastic IP script example.</h1>
+
+<p><strong>assign_eip.rb</strong>:</p>
+
+<pre><code>#!/usr/bin/ruby
+# This is a script that assign Elastic IP to current instance.
+# Usage:
+# You need to fill out config_eip.json config file:
+# {
+# &quot;aws_access_key&quot;: &quot;aws_access_key&quot;,
+# &quot;aws_secret_key&quot;: &quot;aws_secret_key&quot;,
+# &quot;eip&quot;: &quot;x.x.x.x&quot;,
+# }
+#
+# Config file should be in the same dir as a script
+# then, start script:
+# assign_eip.rb
+# This will assign x.x.x.x Elastic IP to current instance.
+
+require &quot;rubygems&quot;
+require &quot;json&quot;
+require &quot;net/http&quot;
+require &quot;fog&quot;
+
+# Read config
+CONFIG = JSON.parse(IO.read(File.join(File.dirname(__FILE__), 'assign_eip.json')))
+
+# Here we need to get server.id
+INSTANCE_HOST = '169.254.169.254'
+INSTANCE_ID_URL = '/latest/meta-data/instance-id'
+INSTANCE_REGION_URL = '/latest/meta-data/placement/availability-zone'
+
+httpcall = Net::HTTP.new(INSTANCE_HOST)
+resp, instance_id = httpcall.get2(INSTANCE_ID_URL)
+resp, region = httpcall.get2(INSTANCE_REGION_URL)
+
+# Cut out availability zone marker.
+# For example if region == &quot;us-east-1c&quot; after cutting out it will be
+# &quot;us-east-1&quot;
+
+region = region[0..-2]
+
+# First we get a connection object from amazon, region is
+# required if your instances are in other zone than the
+# gem's default one (us-east-1).
+
+c = Fog::Compute.new(
+                 :provider =&gt; 'AWS',
+                 :aws_access_key_id =&gt; CONFIG['aws_access_key'],
+                 :aws_secret_access_key =&gt; CONFIG['aws_secret_key'],
+                 :region =&gt; region )
+
+# Then we get Fog::Compute::AWS::Address to get allocation_id of Elastic IP.
+# For some reason I failed to make it work with IP address directly.
+# if I use Elastic IP instead of allocation id it always returns 400
+# Bad Request.
+
+eip = c.addresses.get(CONFIG['eip'])
+
+# Then we accociate Elastic IP with current node.
+
+c.associate_address(instance_id,nil,nil,eip.allocation_id)
+</code></pre>
+
+<p><strong>assign_eip.json</strong>:</p>
+
+<pre><code>{
+&quot;aws_access_key&quot;: &quot;AWS_access_key&quot;,
+&quot;aws_secret_key&quot;: &quot;Your_AWS_secret_key&quot;,
+&quot;eip&quot;: &quot;Elastic IP to assign&quot;
+}
+</code></pre>
+
+<h1 id="further-reading">Further reading</h1>
+
+<ul>
+<li><a href="http://rubydoc.info/gems/fog/frames" target="_blank">RubyDoc: fog</a></li>
+<li><a href="http://rubydoc.info/github/fog/fog/Fog/Compute/AWS" target="_blank">RubyDoc: Fog::Compute::AWS</a></li>
+<li><a href="http://rubydoc.info/github/stesla/fog/Fog/AWS/EC2#associate_address-instance_method" target="_blank">RubyDoc: Fog::AWS::EC2.associate_address</a></li>
+<li><a href="http://rubydoc.info/github/fog/fog/Fog/Compute/AWS/Addresses" target="_blank">RubyDoc: Fog::Compute::AWS::Addresses</a></li>
+<li><a href="http://rubydoc.info/github/fog/fog/index" target="_blank">RubyDoc: Fog Alphabetic Index</a></li>
+<li><a href="https://github.com/fog/fog/blob/master/lib/fog/aws/requests/compute/associate_address.rb" target="_blank">GitHub: fog - associate_address.rb</a></li>
+<li><a href="http://opsrobot.com/post/9631423001/using-fog-for-attaching-aws-elastic-ip-addresses-to" target="_blank">Using fog for attaching AWS elastic ip addresses to servers</a></li>
+<li><a href="http://fog.io/" target="_blank">Fog home site</a></li>
+<li><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html" target="_blank">AWS Documentation: Instance Metadata and User Data</a></li>
+<li><a href="https://github.com/madebymade/aws-remap-elastic-ip" target="_blank">AWS Elastic IP remapper</a></li>
+</ul>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Kostiantyn Lysenko</span></span>
+    
+    <time>Jun 3, 2013</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+
+    
+      <a class="basic-alignment right" href="http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/" title="Manage AWS Elastic IPs with AWS Ruby SDK">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jakshi';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <img src="http://verydevops.com/img/me.png" alt="Kostiantyn Lysenko" />
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/jakshi" title="https://github.com/jakshi"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      
+      
+         
+      
+      <a target="_blank" href="http://ua.linkedin.com/in/konstantinlysenko" title="http://ua.linkedin.com/in/konstantinlysenko"><i class="fa fa-linkedin fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://www.facebook.com/fjakshi" title="https://www.facebook.com/fjakshi"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+    
+      <section class="odd">
+        
+        
+      </section>
+    
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/">Chef shortcuts</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/">Chef cookbook templating with cookiecutter</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Kostiantyn Lysenko - <a href="http://verydevops.com/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','google analytics'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

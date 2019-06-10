@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="http://verydevops.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Manage AWS Elastic IPs with AWS Ruby SDK</title>
+
+  
+  
+  <link rel="stylesheet" href="http://verydevops.com/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="http://verydevops.com/css/fork-awesome.min.css">
+  
+
+  
+  <link href="http://verydevops.com/favicon.png" rel="icon">
+
+  
+  
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Kostiantyn Lysenko">
+
+  
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://verydevops.com/">Yet another one DevOps blog</a></h1>
+    <h2>Ops and DevOps stories</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://verydevops.com/">» Blog</option>
+      
+        <option value="http://verydevops.com/contacts/">» Contacts</option>
+      
+        <option value="http://verydevops.com/about/">» About me</option>
+      
+        <option value="https://github.com/jakshi/devops-wiki/wiki">» Wiki</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://verydevops.com/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/contacts/" title="Contacts" >Contacts</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/about/" title="About me" >About me</a></li>
+    
+  
+    
+      <li><a href="https://github.com/jakshi/devops-wiki/wiki" title="Wiki" target="_blank">Wiki</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://verydevops.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://verydevops.com/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+<div id="main">
+  <div id="content">
+    <div>
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+  <p class="meta">Jul 14, 2014
+     - 1 minute read 
+     - <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/git/">git </a>
+    
+  </p>
+  <h1 class="entry-title">
+     Manage AWS Elastic IPs with AWS Ruby SDK 
+  </h1>
+</header>
+
+
+        <div class="entry-content">
+          
+          
+          
+          
+
+<p>Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.</p>
+
+<p>Use case: You want to remove some files that you added with your commit.</p>
+
+<h1 id="find-the-commit">Find the commit</h1>
+
+<pre><code>git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+</code></pre>
+
+<p>Let it be <code>4ca80f0</code>.</p>
+
+<h1 id="remove-files-that-you-don-t-want-in-the-commit">Remove files that you don&rsquo;t want in the commit.</h1>
+
+<pre><code>git rebase -i 4ca80f0~1
+</code></pre>
+
+<p>Replace pick with edit and save file.</p>
+
+<p>Then you need to unstage files in the commit:</p>
+
+<pre><code>git reset HEAD^
+</code></pre>
+
+<p>now all files are in state before that commit, and you can add/remove/stage them.</p>
+
+<p>to undo <code>windows</code> file changes:</p>
+
+<pre><code>git checkout -- windows
+</code></pre>
+
+<p>or if this is a new file you can just delete it</p>
+
+<pre><code>rm -rf windows
+</code></pre>
+
+<p>also you can split this commit into several commits.</p>
+
+<h1 id="change-commit-message">Change commit message</h1>
+
+<p>Now you probably want to change commit message:</p>
+
+<pre><code>git commit --amend
+</code></pre>
+
+<h1 id="apply-changes">Apply changes</h1>
+
+<pre><code>git rebase --continue
+</code></pre>
+
+<h1 id="profit">Profit!</h1>
+
+<p>Enjoy you splitted/amended commit.</p>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><a href="http://stackoverflow.com/questions/11729030/how-do-i-selectively-revert-some-changes-in-a-single-commit-to-a-single-file" target="_blank">Stackoverflow: How do I selectively revert some changes in a single commit to a single file?</a></li>
+<li><a href="http://stackoverflow.com/questions/4795600/reverting-part-of-a-commit-with-git/4796144#4796144" target="_blank">Stackoverflow: Reverting part of a commit with git</a></li>
+<li><a href="http://stackoverflow.com/questions/1109069/git-selective-revert-local-changes-from-a-file" target="_blank">Stackoverflow: git selective revert local changes from a file</a></li>
+</ul>
+
+        </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">Kostiantyn Lysenko</span></span>
+    
+    <time>Jul 14, 2014</time>
+    
+    </span>
+  </p>
+
+  
+
+  <p class="meta">
+    
+        <a class="basic-alignment left" href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/" title="Accessing chef attributes in serverspec tests">Accessing chef attributes in serverspec tests</a>
+    
+
+    
+      <a class="basic-alignment right" href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/" title="Chef shortcuts">Chef shortcuts</a>
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+  (function() {
+      
+      
+      
+      if (window.location.hostname == "localhost")
+          return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'jakshi';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+</footer>
+
+      </article>
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <img src="http://verydevops.com/img/me.png" alt="Kostiantyn Lysenko" />
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/jakshi" title="https://github.com/jakshi"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      
+      
+         
+      
+      <a target="_blank" href="http://ua.linkedin.com/in/konstantinlysenko" title="http://ua.linkedin.com/in/konstantinlysenko"><i class="fa fa-linkedin fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://www.facebook.com/fjakshi" title="https://www.facebook.com/fjakshi"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+    
+      <section class="odd">
+        
+        
+      </section>
+    
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/">Chef shortcuts</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/">Chef cookbook templating with cookiecutter</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+
+  </div>
+</div>
+
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Kostiantyn Lysenko - <a href="http://verydevops.com/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','google analytics'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+

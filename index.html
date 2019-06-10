@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+
+  
+    
+    
+      <link href="http://verydevops.com/css/fonts.css" rel="stylesheet" type="text/css">
+    
+  
+
+  
+  <title>Yet another one DevOps blog</title>
+
+  
+  
+  <link rel="stylesheet" href="http://verydevops.com/css/hugo-octopress.css">
+
+  
+  
+
+  
+    <link rel="stylesheet" href="http://verydevops.com/css/fork-awesome.min.css">
+  
+
+  
+  <link href="http://verydevops.com/favicon.png" rel="icon">
+
+  
+  <link href="http://verydevops.com/index.xml" rel="alternate" type="application/rss+xml" title="Yet another one DevOps blog" />
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="">
+  <meta name="author" content="Kostiantyn Lysenko">
+
+  
+  <meta name="generator" content="Hugo 0.56.0-DEV" />
+
+  
+  
+
+  
+  
+</head>
+<body>
+
+
+<header role="banner">
+<hgroup>
+  
+  <h1><a href="http://verydevops.com/">Yet another one DevOps blog</a></h1>
+    <h2>Ops and DevOps stories</h2>
+</hgroup></header>
+
+
+<nav role="navigation">
+<fieldset class="mobile-nav">
+  
+  <select onchange="location = this.value;">
+    <option value="">Navigate…</option>
+      
+        <option value="http://verydevops.com/">» Blog</option>
+      
+        <option value="http://verydevops.com/contacts/">» Contacts</option>
+      
+        <option value="http://verydevops.com/about/">» About me</option>
+      
+        <option value="https://github.com/jakshi/devops-wiki/wiki">» Wiki</option>
+      
+  </select>
+</fieldset>
+
+
+<ul class="main-navigation">
+  
+  
+    
+      <li><a href="http://verydevops.com/" title="Blog">Blog</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/contacts/" title="Contacts" >Contacts</a></li>
+    
+  
+    
+      <li><a href="http://verydevops.com/about/" title="About me" >About me</a></li>
+    
+  
+    
+      <li><a href="https://github.com/jakshi/devops-wiki/wiki" title="Wiki" target="_blank">Wiki</a></li>
+    
+  
+</ul>
+
+<ul class="subscription">
+  
+    
+        <a href="http://verydevops.com/index.xml" target="_blank" type="application/rss+xml" title="RSS"><i class="fa fa-rss-square fa-lg"></i></a>
+    
+  
+</ul>
+
+
+  <form action="https://www.google.com/search" method="get" target="_blank">
+    <fieldset role="search">
+      <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      <input type="hidden" name="q" value="site:http://verydevops.com/" />
+    </fieldset>
+  </form>
+
+</nav>
+
+
+
+
+  
+
+<div id="main">
+  <div id="content">
+    <div class="blog-index">
+      
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Nov 21, 2014
+     - 2 minute read 
+     - <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/chef/">chef </a><a class="label" href="http://verydevops.com/categories/knife/">knife </a><a class="label" href="http://verydevops.com/categories/devops/">devops </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/">Chef shortcuts</a>
+  </h1>
+</header>
+
+        
+          <p><h1 id="add-a-recipe-to-the-end-of-run-list-on-certain-environment">Add a recipe to the end of run list on certain environment</h1>
+
+<p>Test run, not actually add a recipe:</p>
+
+<pre><code>knife exec -E 'nodes.transform (&quot;chef_environment:beta&quot;) {|n| puts n.run_list &lt;&lt; &quot;recipe[logentries_ng]&quot; }'
+</code></pre>
+
+<p>Add a recipe for real:</p>
+
+<pre><code>knife exec -E 'nodes.transform (&quot;chef_environment:beta&quot;) {|n| puts n.run_list &lt;&lt; &quot;recipe[logentries_ng]&quot;; n.save }'
+</code></pre>
+</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Jul 14, 2014
+     - 1 minute read 
+     - <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/git/">git </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+  </h1>
+</header>
+
+        
+          <p><p>Sometimes when you commit something nasty, you need to rewrite it. Or you may need to split commit into parts. Or whatever.</p>
+
+<p>Use case: You want to remove some files that you added with your commit.</p>
+</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">May 12, 2014
+     - 2 minute read 
+     - <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/chef/">chef </a><a class="label" href="http://verydevops.com/categories/serverspec/">serverspec </a><a class="label" href="http://verydevops.com/categories/devops/">devops </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
+  </h1>
+</header>
+
+        
+          <p><p>I presume that you are familiar with:</p>
+
+<ul>
+<li>Chef</li>
+<li>test-kitchen</li>
+<li>serverspec</li>
+</ul>
+
+<p>When you write serverspec integration tests, it would be great to have access to chef attributes of cookbook that you&rsquo;re testing.
+There&rsquo;s a fast and simple way to do this.</p>
+</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">May 3, 2014
+     - 3 minute read 
+     - <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/chef/">chef </a><a class="label" href="http://verydevops.com/categories/cookiecutter/">cookiecutter </a><a class="label" href="http://verydevops.com/categories/python/">python </a><a class="label" href="http://verydevops.com/categories/template/">template </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/">Chef cookbook templating with cookiecutter</a>
+  </h1>
+</header>
+
+        
+          <p><p>One of the challenges in chef cookbook development - create a comprehensive cookbook template.</p>
+
+<p>Good cookbook template might:</p>
+
+<ul>
+<li>standartize your cookbooks</li>
+<li>fill them with convenient predefinitions</li>
+<li>save your time.</li>
+</ul>
+
+<p>If you are not python averse, you could find that <a href="https://github.com/audreyr/cookiecutter" target="_blank">cookiecutter</a> pretty useful tool for creating your cookbooks templates. This article describes my experience in creating chef cookbook template with <a href="https://github.com/audreyr/cookiecutter" target="_blank">cookiecutter</a>.</p>
+</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Apr 24, 2014
+     - 4 minute read 
+     - <a href="http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/aws/">aws </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/chef/">chef </a><a class="label" href="http://verydevops.com/categories/devops/">devops </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a><a class="label" href="http://verydevops.com/categories/backup/">backup </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/">Backup gem and Chef</a>
+  </h1>
+</header>
+
+        
+          <p><h1 id="intro">Intro</h1>
+
+<ul>
+<li>There&rsquo;s a nice tool for doing fast and easy backup to AWS S3: <a href="http://meskyanichi.github.io/backup/" target="_blank">backup gem</a></li>
+<li>There should be done a lot of steps for setup a backup though.</li>
+<li>So it could be automated with chef.</li>
+<li>In this article I&rsquo;ll write log of creation backup gem&rsquo;s cookbook.</li>
+<li>Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.</li>
+</ul></p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Jan 25, 2014
+     - 1 minute read 
+     - <a href="http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/git/">git </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/">Rewriting your email in git commits</a>
+  </h1>
+</header>
+
+        
+          <p>Sometimes you need to rewrite your email in your commits in some git repository. Do it with command:
+git filter-branch --env-filter 'if [ $GIT_AUTHOR_EMAIL = bad@email ]; then GIT_AUTHOR_EMAIL=correct@email; fi; export GIT_AUTHOR_EMAIL'  For your collaborators this operatioin might be dangerous. According to Jakub Narębski collaborators will need to:
+ if they didn&rsquo;t base their work on history pre-rewrite, just git reset --hard origin/master or just git pull origin (which should fast-forward).</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Jun 16, 2013
+     - 1 minute read 
+     - <a href="http://verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/sysadmin/">sysadmin </a><a class="label" href="http://verydevops.com/categories/sysctl/">sysctl </a><a class="label" href="http://verydevops.com/categories/network/">network </a><a class="label" href="http://verydevops.com/categories/notes/">notes </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/">Resolving &#39;nf_conntrack: table full, dropping packet&#39; messages</a>
+  </h1>
+</header>
+
+        
+        <p>Just a quick note:</p>
+
+<p>Good article about <a href="http://pc-freak.net/blog/resolving-nf_conntrack-table-full-dropping-packet-flood-message-in-dmesg-linux-kernel-log/" target="_blank">Resolving “nf_conntrack: table full, dropping packet.” flood message in dmesg Linux kernel log</a></p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Jun 7, 2013
+     - 1 minute read 
+     - <a href="http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/aws/">aws </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+  </h1>
+</header>
+
+        
+          <p><p>I tried three ruby libs for managing Elastic IPs for AWS EC2.</p>
+
+<ul>
+<li>fog</li>
+<li>right_aws</li>
+<li>Official Ruby AWS SDK.</li>
+</ul>
+
+<p>I wholeheartedly recommend Official AWS Ruby SDK, as most simple and easy to use.
+I also insert several examples of assigning Elastic IPs with AWS Ruby SDK:</p>
+</p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Jun 3, 2013
+     - 2 minute read 
+     - <a href="http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="http://verydevops.com/categories/technical/">technical </a><a class="label" href="http://verydevops.com/categories/aws/">aws </a><a class="label" href="http://verydevops.com/categories/amazon/">amazon </a><a class="label" href="http://verydevops.com/categories/fog/">fog </a><a class="label" href="http://verydevops.com/categories/ruby/">ruby </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/">Manage AWS Elastic IPs with fog</a>
+  </h1>
+</header>
+
+        
+          <p><h1 id="connect-to-aws-api-with-fog">Connect to AWS API with fog.</h1>
+
+<pre><code>require 'fog'
+
+c = Fog::Compute.new(
+                 :provider =&gt; 'AWS',
+                 :aws_access_key_id =&gt; 'Your AWS access key',
+                 :aws_secret_access_key =&gt; 'Your AWS secret key',
+                 :region =&gt; 'us-east-1' )
+</code></pre></p>
+          
+            <footer>
+              <a href="http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      
+      
+
+
+
+
+
+
+  
+    </div>
+    
+
+<aside class="sidebar thirds">
+  <section class="first odd">
+
+    
+
+    <p>
+      
+        <img src="http://verydevops.com/img/me.png" alt="Kostiantyn Lysenko" />
+      
+    </p>
+  </section>
+
+
+
+  
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item">
+      <a target="_blank" href="https://github.com/jakshi" title="https://github.com/jakshi"><i class="fa fa-github fa-3x"></i></a>
+      
+      
+      
+      
+         
+      
+      <a target="_blank" href="http://ua.linkedin.com/in/konstantinlysenko" title="http://ua.linkedin.com/in/konstantinlysenko"><i class="fa fa-linkedin fa-3x"></i></a>
+      
+      
+      <a target="_blank" href="https://www.facebook.com/fjakshi" title="https://www.facebook.com/fjakshi"><i class="fa fa-facebook fa-3x"></i></a>
+      
+      
+      
+
+    
+    
+    </li>
+  </ul>
+
+  
+
+  
+    
+      <section class="odd">
+        
+        
+      </section>
+    
+  
+
+  
+  
+  
+    
+      <section class="even">
+        <h1>Recent Posts</h1>
+        <ul id="recent_posts">
+          
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-11-21-chef-shortcuts/">Chef shortcuts</a>
+              </li>
+            
+          
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
+              </li>
+            
+          
+            
+              <li class="post">
+                <a href="http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/">Chef cookbook templating with cookiecutter</a>
+              </li>
+            
+          
+        </ul>
+      </section>
+    
+  
+</aside>
+    
+  </div>
+</div>
+    <footer role="contentinfo">
+      <p>Copyright &copy; 2019 Kostiantyn Lysenko - <a href="http://verydevops.com/license/">License</a> -
+        <span class="credit">Powered by <a target="_blank" href="https://gohugo.io">Hugo</a> and <a target="_blank" href="https://github.com/parsiya/hugo-octopress/">Hugo-Octopress</a> theme.
+      </p>
+    </footer>
+
+    
+    
+    
+
+    
+      <script>
+        var _gaq=[['_setAccount','google analytics'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+      </script>
+    
+  </body>
+</html>
+   
+
+

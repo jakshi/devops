@@ -12,7 +12,7 @@ env:
     - DEPLOY_BRANCH="master"
 
 before_install:
-  - openssl aes-256-cbc -K $encrypted_d59617ad8abb_key -iv $encrypted_d59617ad8abb_iv -in travis_id_rsa.enc -out id_rsa -d
+  - openssl aes-256-cbc -K $encrypted_a79a3e2fa35f_key -iv $encrypted_a79a3e2fa35f_iv -in travis_id_rsa.enc -out id_rsa -d
 
 install:
   - true
@@ -24,5 +24,5 @@ script:
   - hugo
 
 after_success:
- - echo "life.jakshi.com" > ./public/CNAME
+ - echo "verydevops.com" > ./public/CNAME
  - ./scripts/deploy.sh

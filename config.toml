@@ -1,4 +1,4 @@
-baseurl = "http://verydevops.com/"
+baseurl = "verydevops.com/"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Yet another one DevOps blog"
@@ -82,7 +82,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     disableGoogleFonts = false
 
     github = "https://github.com/jakshi"
-    linkedin = "http://ua.linkedin.com/in/konstantinlysenko"
+    linkedin = "https://ua.linkedin.com/in/konstantinlysenko"
     facebook = "https://www.facebook.com/fjakshi"
 
 [blackfriday]

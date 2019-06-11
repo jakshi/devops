@@ -18,7 +18,7 @@ install:
   - true
   
 before_script:
-  - go get -u -v github.com/gohugoio/hugo
+  - ./scripts/install_hugo.sh
 
 script:
   - hugo

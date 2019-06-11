@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>aws on Yet another one DevOps blog</title>
-    <link>http://verydevops.com/categories/aws/</link>
+    <link>verydevops.com/categories/aws/</link>
     <description>Recent content in aws on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 24 Apr 2014 12:48:00 +0700</lastBuildDate>
     
-	<atom:link href="http://verydevops.com/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="verydevops.com/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Backup gem and Chef</title>
-      <link>http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/</link>
+      <link>verydevops.com/blog/2014-04-24-backup-gem-and-chef/</link>
       <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
       
-      <guid>http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/</guid>
+      <guid>verydevops.com/blog/2014-04-24-backup-gem-and-chef/</guid>
       <description>Intro  There&amp;rsquo;s a nice tool for doing fast and easy backup to AWS S3: backup gem There should be done a lot of steps for setup a backup though. So it could be automated with chef. In this article I&amp;rsquo;ll write log of creation backup gem&amp;rsquo;s cookbook. Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.</description>
     </item>
     
     <item>
       <title>Manage AWS Elastic IPs with AWS Ruby SDK</title>
-      <link>http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</link>
+      <link>verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</link>
       <pubDate>Fri, 07 Jun 2013 13:48:00 +0700</pubDate>
       
-      <guid>http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</guid>
+      <guid>verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</guid>
       <description>I tried three ruby libs for managing Elastic IPs for AWS EC2.
  fog right_aws Official Ruby AWS SDK.  I wholeheartedly recommend Official AWS Ruby SDK, as most simple and easy to use. I also insert several examples of assigning Elastic IPs with AWS Ruby SDK:
 Connect to AWS API with AWS Ruby SDK. c = AWS::EC2.new(:access_key_id =&amp;gt; &amp;quot;AWS_access_key&amp;quot;, :secret_access_key =&amp;gt; &amp;quot;AWS_secret_key&amp;quot;, :region =&amp;gt; &amp;quot;us-east-1&amp;quot;)  Associate Elastic IP x.</description>
@@ -33,10 +33,10 @@ Connect to AWS API with AWS Ruby SDK. c = AWS::EC2.new(:access_key_id =&amp;gt; 
     
     <item>
       <title>Manage AWS Elastic IPs with fog</title>
-      <link>http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</link>
+      <link>verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</link>
       <pubDate>Mon, 03 Jun 2013 19:25:54 +0700</pubDate>
       
-      <guid>http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</guid>
+      <guid>verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</guid>
       <description>Connect to AWS API with fog. require &#39;fog&#39; c = Fog::Compute.new( :provider =&amp;gt; &#39;AWS&#39;, :aws_access_key_id =&amp;gt; &#39;Your AWS access key&#39;, :aws_secret_access_key =&amp;gt; &#39;Your AWS secret key&#39;, :region =&amp;gt; &#39;us-east-1&#39; )  Associate Elastic IP eip = c.addresses.get(&#39;Your elastic IP address&#39;) c.associate_address(&amp;quot;Your instance id&amp;quot;,nil,nil,eip.allocation_id)  Disassociate Elastic IP eip = c.describe_addresses(&#39;public-ip&#39; =&amp;gt; [&#39;Your elastic IP address&#39;]) disassociate_address(nil,eip[:body][&amp;quot;addressesSet&amp;quot;][0][&amp;quot;associationId&amp;quot;])  Association Elastic IP script example. assign_eip.rb:
 #!/usr/bin/ruby # This is a script that assign Elastic IP to current instance.</description>
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>sysctl on Yet another one DevOps blog</title>
-    <link>http://verydevops.com/categories/sysctl/</link>
+    <link>verydevops.com/categories/sysctl/</link>
     <description>Recent content in sysctl on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Jun 2013 13:55:00 +0700</lastBuildDate>
     
-	<atom:link href="http://verydevops.com/categories/sysctl/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="verydevops.com/categories/sysctl/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Resolving &#39;nf_conntrack: table full, dropping packet&#39; messages</title>
-      <link>http://verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</link>
+      <link>verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</link>
       <pubDate>Sun, 16 Jun 2013 13:55:00 +0700</pubDate>
       
-      <guid>http://verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</guid>
+      <guid>verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</guid>
       <description>Just a quick note:
 Good article about Resolving “nf_conntrack: table full, dropping packet.” flood message in dmesg Linux kernel log</description>
     </item>

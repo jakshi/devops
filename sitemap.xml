@@ -3,188 +3,188 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://verydevops.com/about/</loc>
+    <loc>verydevops.com/about/</loc>
     <lastmod>2017-12-31T16:00:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/</loc>
+    <loc>verydevops.com/</loc>
     <lastmod>2017-12-31T16:00:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/contacts/</loc>
+    <loc>verydevops.com/contacts/</loc>
     <lastmod>2016-04-10T22:17:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/</loc>
+    <loc>verydevops.com/categories/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-11-21-chef-shortcuts/</loc>
+    <loc>verydevops.com/blog/2014-11-21-chef-shortcuts/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/post/</loc>
-    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://verydevops.com/categories/chef/</loc>
+    <loc>verydevops.com/post/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/devops/</loc>
+    <loc>verydevops.com/categories/chef/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/knife/</loc>
+    <loc>verydevops.com/categories/devops/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/technical/</loc>
+    <loc>verydevops.com/categories/knife/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
+    <loc>verydevops.com/categories/technical/</loc>
+    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
     <lastmod>2014-07-14T00:13:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/git/</loc>
+    <loc>verydevops.com/categories/git/</loc>
     <lastmod>2014-07-14T00:13:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</loc>
+    <loc>verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</loc>
     <lastmod>2014-05-12T01:45:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/serverspec/</loc>
+    <loc>verydevops.com/categories/serverspec/</loc>
     <lastmod>2014-05-12T01:45:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</loc>
+    <loc>verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/cookiecutter/</loc>
-    <lastmod>2014-05-03T01:21:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://verydevops.com/categories/python/</loc>
+    <loc>verydevops.com/categories/cookiecutter/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/template/</loc>
+    <loc>verydevops.com/categories/python/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-04-24-backup-gem-and-chef/</loc>
+    <loc>verydevops.com/categories/template/</loc>
+    <lastmod>2014-05-03T01:21:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>verydevops.com/blog/2014-04-24-backup-gem-and-chef/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/amazon/</loc>
+    <loc>verydevops.com/categories/amazon/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/aws/</loc>
+    <loc>verydevops.com/categories/aws/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/backup/</loc>
+    <loc>verydevops.com/categories/backup/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/ruby/</loc>
+    <loc>verydevops.com/categories/ruby/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/</loc>
+    <loc>verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/</loc>
     <lastmod>2014-01-25T18:57:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</loc>
+    <loc>verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/network/</loc>
-    <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://verydevops.com/categories/notes/</loc>
+    <loc>verydevops.com/categories/network/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/sysadmin/</loc>
+    <loc>verydevops.com/categories/notes/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/sysctl/</loc>
+    <loc>verydevops.com/categories/sysadmin/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
+    <loc>verydevops.com/categories/sysctl/</loc>
+    <lastmod>2013-06-16T13:55:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>verydevops.com/blog/2013-06-07-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
     <lastmod>2013-06-07T13:48:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</loc>
+    <loc>verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</loc>
     <lastmod>2013-06-03T19:25:54+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://verydevops.com/categories/fog/</loc>
+    <loc>verydevops.com/categories/fog/</loc>
     <lastmod>2013-06-03T19:25:54+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://verydevops.com/tags/</loc>
+    <loc>verydevops.com/tags/</loc>
     <priority>0</priority>
   </url>
   

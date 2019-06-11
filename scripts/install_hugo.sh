@@ -6,5 +6,5 @@ wget https://github.com/gohugoio/hugo/releases/download/v"$HUGO_VERSION"/hugo_ex
 
 tar -xzvf /tmp/hugo_extended_"$HUGO_VERSION"_Linux-64bit.tar.gz
 
-mkdir -p /usr/local/bin
-mv hugo /usr/local/bin
+suod mkdir -p /usr/local/bin
+sudo mv hugo /usr/local/bin

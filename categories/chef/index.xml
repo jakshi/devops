@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>chef on Yet another one DevOps blog</title>
-    <link>verydevops.com/categories/chef/</link>
+    <link>//verydevops.com/categories/chef/</link>
     <description>Recent content in chef on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Nov 2014 13:16:00 +0700</lastBuildDate>
     
-	<atom:link href="verydevops.com/categories/chef/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//verydevops.com/categories/chef/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chef shortcuts</title>
-      <link>verydevops.com/blog/2014-11-21-chef-shortcuts/</link>
+      <link>//verydevops.com/blog/2014-11-21-chef-shortcuts/</link>
       <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2014-11-21-chef-shortcuts/</guid>
+      <guid>//verydevops.com/blog/2014-11-21-chef-shortcuts/</guid>
       <description>Add a recipe to the end of run list on certain environment Test run, not actually add a recipe:
 knife exec -E &#39;nodes.transform (&amp;quot;chef_environment:beta&amp;quot;) {|n| puts n.run_list &amp;lt;&amp;lt; &amp;quot;recipe[logentries_ng]&amp;quot; }&#39;  Add a recipe for real:
 knife exec -E &#39;nodes.transform (&amp;quot;chef_environment:beta&amp;quot;) {|n| puts n.run_list &amp;lt;&amp;lt; &amp;quot;recipe[logentries_ng]&amp;quot;; n.save }&#39;  Add a recipe to the beginning of run list on certain environment Test run, not actually add a recipe:
@@ -25,10 +25,10 @@ knife exec -E &#39;nodes.</description>
     
     <item>
       <title>Accessing chef attributes in serverspec tests</title>
-      <link>verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</link>
+      <link>//verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</link>
       <pubDate>Mon, 12 May 2014 01:45:00 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</guid>
+      <guid>//verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/</guid>
       <description>I presume that you are familiar with:
  Chef test-kitchen serverspec  When you write serverspec integration tests, it would be great to have access to chef attributes of cookbook that you&amp;rsquo;re testing. There&amp;rsquo;s a fast and simple way to do this.
 Introduction cat attributes/default.rb  override[&#39;backup&#39;][&#39;dependencies&#39;] = [[&#39;fog&#39;],[&#39;aws-s3&#39;]]  Let&amp;rsquo;s say we want this attribute in your serverspec tests.
@@ -38,10 +38,10 @@ How can we do that?
     
     <item>
       <title>Chef cookbook templating with cookiecutter</title>
-      <link>verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</link>
+      <link>//verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</link>
       <pubDate>Sat, 03 May 2014 01:21:00 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</guid>
+      <guid>//verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</guid>
       <description>One of the challenges in chef cookbook development - create a comprehensive cookbook template.
 Good cookbook template might:
  standartize your cookbooks fill them with convenient predefinitions save your time.  If you are not python averse, you could find that cookiecutter pretty useful tool for creating your cookbooks templates. This article describes my experience in creating chef cookbook template with cookiecutter.
@@ -50,10 +50,10 @@ Cookiecutter in nutshell  cookiecutter is a python based software.</description>
     
     <item>
       <title>Backup gem and Chef</title>
-      <link>verydevops.com/blog/2014-04-24-backup-gem-and-chef/</link>
+      <link>//verydevops.com/blog/2014-04-24-backup-gem-and-chef/</link>
       <pubDate>Thu, 24 Apr 2014 12:48:00 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2014-04-24-backup-gem-and-chef/</guid>
+      <guid>//verydevops.com/blog/2014-04-24-backup-gem-and-chef/</guid>
       <description>Intro  There&amp;rsquo;s a nice tool for doing fast and easy backup to AWS S3: backup gem There should be done a lot of steps for setup a backup though. So it could be automated with chef. In this article I&amp;rsquo;ll write log of creation backup gem&amp;rsquo;s cookbook. Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.</description>
     </item>
     

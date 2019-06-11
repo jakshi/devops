@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>template on Yet another one DevOps blog</title>
-    <link>verydevops.com/categories/template/</link>
+    <link>//verydevops.com/categories/template/</link>
     <description>Recent content in template on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 May 2014 01:21:00 +0700</lastBuildDate>
     
-	<atom:link href="verydevops.com/categories/template/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//verydevops.com/categories/template/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Chef cookbook templating with cookiecutter</title>
-      <link>verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</link>
+      <link>//verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</link>
       <pubDate>Sat, 03 May 2014 01:21:00 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</guid>
+      <guid>//verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/</guid>
       <description>One of the challenges in chef cookbook development - create a comprehensive cookbook template.
 Good cookbook template might:
  standartize your cookbooks fill them with convenient predefinitions save your time.  If you are not python averse, you could find that cookiecutter pretty useful tool for creating your cookbooks templates. This article describes my experience in creating chef cookbook template with cookiecutter.

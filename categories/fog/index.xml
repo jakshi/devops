@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>fog on Yet another one DevOps blog</title>
-    <link>verydevops.com/categories/fog/</link>
+    <link>//verydevops.com/categories/fog/</link>
     <description>Recent content in fog on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 03 Jun 2013 19:25:54 +0700</lastBuildDate>
     
-	<atom:link href="verydevops.com/categories/fog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//verydevops.com/categories/fog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Manage AWS Elastic IPs with fog</title>
-      <link>verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</link>
+      <link>//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</link>
       <pubDate>Mon, 03 Jun 2013 19:25:54 +0700</pubDate>
       
-      <guid>verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</guid>
+      <guid>//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</guid>
       <description>Connect to AWS API with fog. require &#39;fog&#39; c = Fog::Compute.new( :provider =&amp;gt; &#39;AWS&#39;, :aws_access_key_id =&amp;gt; &#39;Your AWS access key&#39;, :aws_secret_access_key =&amp;gt; &#39;Your AWS secret key&#39;, :region =&amp;gt; &#39;us-east-1&#39; )  Associate Elastic IP eip = c.addresses.get(&#39;Your elastic IP address&#39;) c.associate_address(&amp;quot;Your instance id&amp;quot;,nil,nil,eip.allocation_id)  Disassociate Elastic IP eip = c.describe_addresses(&#39;public-ip&#39; =&amp;gt; [&#39;Your elastic IP address&#39;]) disassociate_address(nil,eip[:body][&amp;quot;addressesSet&amp;quot;][0][&amp;quot;associationId&amp;quot;])  Association Elastic IP script example. assign_eip.rb:
 #!/usr/bin/ruby # This is a script that assign Elastic IP to current instance.</description>
     </item>

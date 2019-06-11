@@ -8,5 +8,8 @@ sudo dpkg --force-all -i libstdc++6
 
 # And installing hugo itself
 
-wget -q -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v"$HUGO_VERSION"/hugo_extended_"$HUGO_VERSION"_Linux_64bit.deb
-sudo dpkg -i hugo.deb
+wget https://github.com/gohugoio/hugo/releases/download/v"$HUGO_VERSION"/hugo_extended_"$HUGO_VERSION"_Linux-64bit.tar.gz -O /tmp/hugo_extended_"$HUGO_VERSION"_Linux-64bit.tar.gz
+tar -xzvf /tmp/hugo_extended_"$HUGO_VERSION"_Linux-64bit.tar.gz
+
+sudo mkdir -p /usr/local/bin
+sudo mv hugo /usr/local/bin

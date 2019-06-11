@@ -1,4 +1,4 @@
-baseurl = "verydevops.com/"
+baseurl = "//verydevops.com/"
 disablePathToLower = false
 languageCode = "en-us"
 title = "Yet another one DevOps blog"

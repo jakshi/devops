@@ -6,10 +6,19 @@
     <description>Recent content on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Dec 2017 16:00:00 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 21:35:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reopen DevOps blog</title>
+      <link>//verydevops.com/blog/2019-06-10-reopen-devops-blog/</link>
+      <pubDate>Mon, 10 Jun 2019 21:35:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/blog/2019-06-10-reopen-devops-blog/</guid>
+      <description> About reopening  After years of laziness, I want to reopen My DevOps blog. Hugo static site generator + autobuilds with Travis CI on push to github repository. Also new domain - verydevops.com  </description>
+    </item>
     
     <item>
       <title>About</title>

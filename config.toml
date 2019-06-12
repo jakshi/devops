@@ -51,7 +51,7 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
     continueReadingText = "Read on  &rarr;"
 
     # Google analytics code
-    googleAnalytics = "google analytics"
+    googleAnalytics = "UA-15926665-6"
 
 
     rss = true  # switch to true to enable RSS icon link

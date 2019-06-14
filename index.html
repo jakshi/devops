@@ -129,6 +129,58 @@
         
 
 <header>
+  <p class="meta">Jun 14, 2019
+     - 1 minute read 
+     - <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="//verydevops.com/categories/announcement/">announcement </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/">Upgrade bash on mac os x</a>
+  </h1>
+</header>
+
+        
+        
+
+<h1 id="intro">Intro</h1>
+
+<p>MacOS X has old 3.x bash.
+I found it&rsquo;s very uncomfortable, as it doesn&rsquo;t fit &gt;4.x bash on most linux host.
+So you need to remember where do you want to run your scripts:</p>
+
+<ul>
+<li>on linux with bash &gt;4.x?</li>
+<li>on mac os x with bash 3.x?</li>
+</ul>
+
+<p>So - why not upgrade.
+I found comprehenisve article here: <a href="https://itnext.io/upgrading-bash-on-macos-7138bd1066ba" target="_blank">Upgrading Bash on macOS</a></p>
+
+<p>And now:</p>
+
+<pre><code>$ bash --version
+GNU bash, version 5.0.2(1)-release (x86_64-apple-darwin18.2.0)
+Copyright (C) 2019 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+</code></pre>
+
+<p>Much better.</p>
+
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Jun 10, 2019
      - 1 minute read 
      - <a href="//verydevops.com/blog/2019-06-10-reopen-devops-blog/#disqus_thread">Comments</a>
@@ -442,44 +494,6 @@ I also insert several examples of assigning Elastic IPs with AWS Ruby SDK:</p>
         
       </article>
       
-      <article>
-        
-        
-
-<header>
-  <p class="meta">Jun 3, 2013
-     - 2 minute read 
-     - <a href="//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/#disqus_thread">Comments</a>
-
-    
-    
-      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/aws/">aws </a><a class="label" href="//verydevops.com/categories/amazon/">amazon </a><a class="label" href="//verydevops.com/categories/fog/">fog </a><a class="label" href="//verydevops.com/categories/ruby/">ruby </a>
-    
-  </p>
-  <h1 class="entry-title">
-    <a href="//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/">Manage AWS Elastic IPs with fog</a>
-  </h1>
-</header>
-
-        
-          <p><h1 id="connect-to-aws-api-with-fog">Connect to AWS API with fog.</h1>
-
-<pre><code>require 'fog'
-
-c = Fog::Compute.new(
-                 :provider =&gt; 'AWS',
-                 :aws_access_key_id =&gt; 'Your AWS access key',
-                 :aws_secret_access_key =&gt; 'Your AWS secret key',
-                 :region =&gt; 'us-east-1' )
-</code></pre></p>
-          
-            <footer>
-              <a href="//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/" rel="full-article">Read on  &rarr;</a>
-            </footer>
-          
-        
-      </article>
-      
       
       
 
@@ -487,6 +501,35 @@ c = Fog::Compute.new(
 
 
 
+
+<div class="pagination">
+
+    
+        
+        
+        
+        <a href="//verydevops.com/" aria-label="First" class="label-pagination"><i class="fa fa-angle-double-left fa-lg"></i></a>
+    
+
+    
+
+    
+        <a href="//verydevops.com/" class="label-pagination">1</a>
+    
+        <a href="//verydevops.com/page/2/" class="label-pagination">2</a>
+    
+
+    
+    
+        <a href="//verydevops.com/page/2/" aria-label="Next" class="label-pagination"><i class="fa fa-angle-right fa-lg"></i></a>
+    
+
+    
+    
+        <a href="//verydevops.com/page/2/" aria-label="Last"><i class="fa fa-angle-double-right fa-lg"></i></a>
+    
+
+</div>
 
   
     </div>
@@ -553,6 +596,12 @@ c = Fog::Compute.new(
           
             
               <li class="post">
+                <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/">Upgrade bash on mac os x</a>
+              </li>
+            
+          
+            
+              <li class="post">
                 <a href="//verydevops.com/blog/2019-06-10-reopen-devops-blog/">Reopen DevOps blog</a>
               </li>
             
@@ -566,12 +615,6 @@ c = Fog::Compute.new(
             
               <li class="post">
                 <a href="//verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/">Manage AWS Elastic IPs with AWS Ruby SDK</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="//verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/">Accessing chef attributes in serverspec tests</a>
               </li>
             
           

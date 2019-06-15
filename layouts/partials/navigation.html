@@ -15,7 +15,7 @@
   {{ range .Site.Menus.main }}
     {{ if eq .URL "/" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}">{{ .Name }}</a></li>
-    {{ else if eq .Name "Wiki" }}
+    {{ else if hasPrefix .Identifier "external" }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}" target="_blank">{{ .Name }}</a></li>
     {{ else }}
       <li><a href="{{ .URL | absURL }}" title="{{ .Name }}" {{ if eq $.Site.Params.navigationNewWindow true }} target="_blank" {{ end }}>{{ .Name }}</a></li>

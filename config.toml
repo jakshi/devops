@@ -106,6 +106,12 @@ post = "/blog/:year-:month-:day-:title/" # change the post URL to look like the 
       weight = -5
   [[menu.main]]
       Name = "Wiki"
-      identifier = "wiki"
+      identifier = "external-wiki"
       url = "https://github.com/jakshi/devops-wiki/wiki"
       weight = -3
+  [[menu.main]]
+      Name = "My Casual Blog"
+      identifier = "external-casual-blog"
+      url = "https://lysenko.dev"
+      weight = -1
+ 

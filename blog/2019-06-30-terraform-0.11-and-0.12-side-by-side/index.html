@@ -14,7 +14,7 @@
   
 
   
-  <title>Accessing chef attributes in serverspec tests</title>
+  <title>Terraform 0.11 and 0.12 side-by-side</title>
 
   
   
@@ -130,17 +130,17 @@
         
 
 <header>
-  <p class="meta">May 12, 2014
-     - 2 minute read 
-     - <a href="//verydevops.com/blog/2014-05-12-accessing-chef-attributes-in-serverspec-tests/#disqus_thread">Comments</a>
+  <p class="meta">Jun 30, 2019
+     - 3 minute read 
+     - <a href="//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/#disqus_thread">Comments</a>
 
     
     
-      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/chef/">chef </a><a class="label" href="//verydevops.com/categories/serverspec/">serverspec </a><a class="label" href="//verydevops.com/categories/devops/">devops </a>
+      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/terraform/">terraform </a><a class="label" href="//verydevops.com/categories/devops/">devops </a>
     
   </p>
   <h1 class="entry-title">
-     Accessing chef attributes in serverspec tests 
+    <a href="//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/">Terraform 0.11 and 0.12 side-by-side</a>
   </h1>
 </header>
 
@@ -151,188 +151,170 @@
           
           
 
-<p>I presume that you are familiar with:</p>
+<!-- more -->
+
+<p>This is a guide how to install:</p>
 
 <ul>
-<li>Chef</li>
-<li>test-kitchen</li>
-<li>serverspec</li>
+<li><a href="https://www.terraform.io/" target="_blank">terraform</a> 0.11 and 0.12</li>
+<li><a href="https://github.com/gruntwork-io/terragrunt" target="_blank">terragrunt</a> 0.18 and 0.19</li>
 </ul>
 
-<p>When you write serverspec integration tests, it would be great to have access to chef attributes of cookbook that you&rsquo;re testing.
-There&rsquo;s a fast and simple way to do this.</p>
+<p>side by side on MacOS X.</p>
 
-<h1 id="introduction">Introduction</h1>
+<h1 id="intro">Intro</h1>
 
-<pre><code>cat attributes/default.rb
-</code></pre>
+<p>I use <strong>terraform</strong> and <strong>terragrunt</strong> to automate our AWS IT infrastructure.</p>
 
-<pre><code>override['backup']['dependencies'] = [['fog'],['aws-s3']]
-</code></pre>
+<p>Recently Hashicorp released major <strong>terraform</strong> <a href="https://www.hashicorp.com/blog/terraform-0-1-2-preview" target="_blank">upgrade</a>.<br />
+The main point - upgrade from HCL 1 to HCL 2 (HCL is a language that <strong>terraform</strong> uses to describe IT infra setup.<br />
+There are a lot of useful features in HCL 2 so effort spent on upgrade from <strong>terraform</strong> 0.11 to 0.12 makes sense.</p>
 
-<p>Let&rsquo;s say we want this attribute in your serverspec tests.</p>
+<p>But to make the upgrade easier - it would be great to have <strong>terraform</strong> 0.11 and 0.12 side by side.<br />
+Then it would be possible to upgrade your <strong>terraform</strong> states one by one - till you upgrade them all!</p>
 
-<p>How can we do that?</p>
+<p>Also as we use <strong>terragrunt</strong> we need to have:</p>
 
 <ul>
-<li>Dump chef attributes to JSON file with helper cookbook</li>
-<li>Load this file from serverspec tests</li>
+<li>0.18 version of it compatible with <strong>terraform</strong> 0.11</li>
+<li>0.19 version of it compatible with <strong>terraform</strong> 0.12</li>
 </ul>
 
-<h1 id="dump-chef-attributes">Dump chef attributes</h1>
+<p>side by side.</p>
 
-<h2 id="create-fixture-cookbook">Create fixture cookbook</h2>
+<h1 id="prerequisites">Prerequisites</h1>
 
-<pre><code>emacs test/fixtures/cookbooks/test-helper/metadata.rb
+<ul>
+<li><a href="https://brew.sh/" target="_blank">brew</a> package manager installed.</li>
+<li>I use bash version 5.x, so if there will be any issues with bash scripts - check your bash version.</li>
+</ul>
+
+<h1 id="upgrade-from-terrafrom-0-11-to-0-12-and-from-terragrunt-0-18-to-0-19">Upgrade from <strong>terrafrom</strong> 0.11 to 0.12 and from <strong>terragrunt</strong> 0.18 to 0.19</h1>
+
+<p>Upgrade process from <strong>terraform</strong> 0.11 to <strong>terrafrom</strong> 0.12 and from <strong>terragrunt</strong> 0.18 to <strong>terragrunt</strong> 0.19 is described on terraform and terragrunt websites:</p>
+
+<ul>
+<li><a href="https://www.terraform.io/upgrade-guides/0-12.html" target="_blank">Upgrade from terrafrom 0.11 to 0.12</a></li>
+<li><a href="https://github.com/gruntwork-io/terragrunt/blob/master/_docs/migration_guides/upgrading_to_terragrunt_0.19.x.md" target="_blank">Upgrade from terragrunt 0.18 to 0.19</a></li>
+</ul>
+
+<p>You should just follow instructions to upgrade your <strong>terraform</strong>/<strong>terragrunt</strong> code.</p>
+
+<h1 id="install-terraform-0-11-on-macos-x">Install <strong>terraform</strong> 0.11 on MacOS X</h1>
+
+<pre><code>brew install terraform@0.11
 </code></pre>
 
-<pre><code>name             'test-helper'
-maintainer       'John Smith'
-maintainer_email 'john@example.com'
-license          'Apache 2.0'
-description      'Dumps chef node data to json file'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.0.1'
+<h1 id="install-terragrunt-0-18-x-on-macos-x">Install <strong>terragrunt</strong> 0.18.x on MacOS X</h1>
 
-recipe 'default', 'Dumps chef node data to json file'
-
-%w{ ubuntu debian }.each do |os|
-  supports os
-end
+<pre><code>sudo mkdir -p /opt/terragrunt_0.18/bin
+cd /opt
+chown -R youruser:staff terragrunt_0.18/bin
+cd terragrunt_0.18/bin
+wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.18.7/terragrunt_darwin_amd64
+mv terragrunt_darwin_amd64 terragrunt
+chmod 755 terragrunt
 </code></pre>
 
-<pre><code>emacs test/fixtures/cookbooks/test-helper/recipes/default.rb
+<h1 id="install-terrafrom-0-12-on-macos-x">Install <strong>terrafrom</strong> 0.12 on MacOS X</h1>
+
+<pre><code>brew install terraform
 </code></pre>
 
-<pre><code>chef_gem 'activesupport'
+<h1 id="install-terragrunt-0-19-x-on-macos-x">Install <strong>terragrunt</strong> 0.19.x on MacOS X</h1>
 
-require 'pathname'
-require 'active_support/core_ext/hash/deep_merge'
-
-directory '/tmp/serverspec' do
-  recursive true
-end
-
-file '/tmp/serverspec/node.json' do
-  owner &quot;root&quot;
-  mode &quot;0400&quot;
-end
-
-log &quot;Dumping attributes to '/tmp/serverspec/node.json.&quot;
-
-ruby_block &quot;dump_node_attributes&quot; do
-  block do
-    require 'json'
-
-    attrs = {}
-
-    attrs = attrs.deep_merge(node.default_attrs) unless node.default_attrs.empty?
-    attrs = attrs.deep_merge(node.normal_attrs) unless node.normal_attrs.empty?
-    attrs = attrs.deep_merge(node.override_attrs) unless node.override_attrs.empty?
-
-    recipe_json = &quot;{ \&quot;run_list\&quot;: \[ &quot;
-    recipe_json &lt;&lt; node.run_list.expand(node.chef_environment).recipes.map! { |k| &quot;\&quot;#{k}\&quot;&quot; }.join(&quot;,&quot;)
-    recipe_json &lt;&lt; &quot; \] }&quot;
-    attrs = attrs.deep_merge(JSON.parse(recipe_json))
-
-    File.open('/tmp/serverspec/node.json', 'w') { |file| file.write(JSON.pretty_generate(attrs)) }
-  end
-end
+<pre><code>brew install terragrunt
 </code></pre>
 
-<pre><code>echo &quot;This a cookbook for dumping chef node attributes to specific location to json formated file.&quot; &gt; test/fixtures/cookbooks/test-helper/README.md
+<h1 id="configure-switching-between-terrafrom-0-11-terragrunt-0-18-to-terraform-0-12-terragrunt-0-19-and-back">Configure switching between <strong>terrafrom</strong> 0.11/<strong>terragrunt</strong> 0.18 to <strong>terraform</strong> 0.12/<strong>terragrunt</strong> 0.19 and back</h1>
+
+<p>Now we need a convenient switching between to sets of <strong>terraform</strong>/<strong>terragrunt</strong></p>
+
+<h2 id="prerequisites-1">Prerequisites</h2>
+
+<pre><code>mkdir ~/.bash.d
 </code></pre>
 
-<h2 id="add-it-to-kitchen-yml">Add it to .kitchen.yml</h2>
+<p>Add to <strong>~/.bash_profile</strong>:</p>
 
-<pre><code>emacs .kitchen.yml
-</code></pre>
-
-<pre><code>---
-driver:
-  name: digitalocean
-  region: amsterdam 2
-  flavor: 512MB
-
-provisioner:
-  name: chef_solo
-
-platforms:
-  - name: ubuntu-12.04
-
-suites:
-  - name: default
-    run_list:
-      - recipe[my_cookbook::default]
-      - recipe[test-helper::default]
-    attributes:
+<pre><code>
+# if running bash
+if [ -n &quot;$BASH_VERSION&quot; ]; then
+  # Bash includes
+  for include in ~/.bash.d/*.sh ; do source $include ; done
+fi
 
 </code></pre>
 
-<h2 id="add-cookbook-helper-to-berksfile">Add cookbook helper to Berksfile</h2>
+<p>Add to <strong>~/.bash.d/init.sh</strong>:</p>
 
-<pre><code>emacs Berksfile
+<pre><code>append_to_PATH () {
+    for d in &quot;$@&quot;; do
+        d=$({ cd -- &quot;$d&quot; &amp;&amp; { pwd -P || pwd; } } 2&gt;/dev/null)  # canonicalize symbolic links
+        if [ -z &quot;$d&quot; ]; then continue; fi  # skip nonexistent directory
+        case &quot;:$PATH:&quot; in
+            *&quot;:$d:&quot;*) :;;
+            *) PATH=$PATH:$d;;
+        esac
+    done
+}
+
+prepend_to_PATH () {
+    for d in &quot;$@&quot;; do
+        d=$({ cd -- &quot;$d&quot; &amp;&amp; { pwd -P || pwd; } } 2&gt;/dev/null)  # canonicalize symbolic links
+        if [ -z &quot;$d&quot; ]; then continue; fi  # skip nonexistent directory
+        case &quot;:$PATH:&quot; in
+            *&quot;:$d:&quot;*) :;;
+            *) PATH=$d:$PATH;;
+        esac
+    done
+}
+
+remove_from_PATH () {
+    FOLDERS_TO_REMOVE=`echo &quot;$@&quot; | sed 's/ /|/g'`
+    PATH=$( echo ${PATH} | tr -s &quot;:&quot; &quot;\n&quot; | grep -vwE &quot;(${FOLDERS_TO_REMOVE})&quot; | tr -s &quot;\n&quot; &quot;:&quot; | sed &quot;s/:$//&quot; )
+}
+
 </code></pre>
 
-<pre><code>source &quot;http://api.berkshelf.com&quot;
+<p>Add to <strong>~/.bash.d/terraform.sh</strong>:</p>
 
-metadata
+<pre><code># Terraform 0.11&amp;0.12 activation functions
+t12 () {
+    remove_from_PATH &quot;/usr/local/Cellar/terraform@0.11/0.11.14/bin&quot;
+    remove_from_PATH &quot;/opt/terragrunt_0.18/bin&quot;
+    export PATH=$PATH
+}
 
-group :integration do
-  cookbook 'test-helper', path: 'test/fixtures/cookbooks/test-helper'
-end
+t11 () {
+    prepend_to_PATH &quot;/usr/local/opt/terraform@0.11/bin&quot;
+    prepend_to_PATH &quot;/opt/terragrunt_0.18/bin&quot;
+    export PATH=$PATH
+}
+
 </code></pre>
 
-<pre><code>berks update
+<p>after that:</p>
+
+<pre><code>source ~/.bash_profile
+
+t11
+terragrunt --version
+terragrunt version v0.18.7
+terraform --version
+Terraform v0.11.14
+
+Your version of Terraform is out of date! The latest version
+is 0.12.3. You can update by downloading from www.terraform.io/downloads.html
+
+t12
+terragrunt --version
+terragrunt version v0.19.6
+terraform --version
+Terraform v0.12.3
 </code></pre>
 
-<h1 id="load-chef-attributes">Load chef attributes</h1>
-
-<pre><code>emacs test/integration/default/serverspec/spec_helper.rb
-</code></pre>
-
-<pre><code>require 'serverspec'
-require 'pathname'
-require 'net/http'
-require 'net/smtp'
-require 'json'
-
-set :backend, :exec
-
-$node = ::JSON.parse(File.read('/tmp/serverspec/node.json'))
-</code></pre>
-
-<h1 id="use-chef-attributes-in-tests">Use chef attributes in tests</h1>
-
-<pre><code>require 'spec_helper'
-
-describe 'my_cookbook' do
-
-  context 'dependencies recipe. It' do
-    $node['backup']['dependencies'].each do |bgem|
-      it &quot;installs backup gem dependency: #{bgem[0]}&quot; do
-        expect(package bgem[0]).to be_installed.by('gem')
-      end
-    end
-  end
-
-end
-</code></pre>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>if you execute:</p>
-
-<pre><code>kitchen verify
-</code></pre>
-
-<p>you should see:</p>
-
-<pre><code>my_cookbook
-  dependencies recipe. It       
-    installs backup gem dependency: fog       
-    installs backup gem dependency: aws-s3       
-</code></pre>
+<p>Have an easy migration :)</p>
 
         </div>
         
@@ -341,7 +323,7 @@ end
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">Kostiantyn Lysenko</span></span>
     
-    <time>May 12, 2014</time>
+    <time>Jun 30, 2019</time>
     
     </span>
   </p>
@@ -350,11 +332,9 @@ end
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="//verydevops.com/blog/2014-05-03-chef-cookbook-templating-with-cookiecutter/" title="Chef cookbook templating with cookiecutter">Chef cookbook templating with cookiecutter</a>
+        <a class="basic-alignment left" href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/" title="Upgrade bash on mac os x">Upgrade bash on mac os x</a>
     
 
-    
-      <a class="basic-alignment right" href="//verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/" title="Manage AWS Elastic IPs with AWS Ruby SDK">Manage AWS Elastic IPs with AWS Ruby SDK</a>
     
   </p>
   

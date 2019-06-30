@@ -6,10 +6,24 @@
     <description>Recent content in technical on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Nov 2014 13:16:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 11:03:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/categories/technical/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terraform 0.11 and 0.12 side-by-side</title>
+      <link>//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/</link>
+      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/</guid>
+      <description>This is a guide how to install:
+ terraform 0.11 and 0.12 terragrunt 0.18 and 0.19  side by side on MacOS X.
+Intro I use terraform and terragrunt to automate our AWS IT infrastructure.
+Recently Hashicorp released major terraform upgrade.
+The main point - upgrade from HCL 1 to HCL 2 (HCL is a language that terraform uses to describe IT infra setup.
+There are a lot of useful features in HCL 2 so effort spent on upgrade from terraform 0.</description>
+    </item>
     
     <item>
       <title>Chef shortcuts</title>

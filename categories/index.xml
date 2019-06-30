@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Jun 2019 10:23:00 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 30 Jun 2019 11:03:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>devops</title>
+      <link>//verydevops.com/categories/devops/</link>
+      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>technical</title>
+      <link>//verydevops.com/categories/technical/</link>
+      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/categories/technical/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>terraform</title>
+      <link>//verydevops.com/categories/terraform/</link>
+      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/categories/terraform/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>announcement</title>
@@ -30,29 +57,11 @@
     </item>
     
     <item>
-      <title>devops</title>
-      <link>//verydevops.com/categories/devops/</link>
-      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
-      
-      <guid>//verydevops.com/categories/devops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>knife</title>
       <link>//verydevops.com/categories/knife/</link>
       <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
       
       <guid>//verydevops.com/categories/knife/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>technical</title>
-      <link>//verydevops.com/categories/technical/</link>
-      <pubDate>Fri, 21 Nov 2014 13:16:00 +0700</pubDate>
-      
-      <guid>//verydevops.com/categories/technical/</guid>
       <description></description>
     </item>
     

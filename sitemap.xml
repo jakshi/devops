@@ -4,25 +4,48 @@
   
   <url>
     <loc>//verydevops.com/categories/</loc>
-    <lastmod>2019-06-14T10:23:00+07:00</lastmod>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/post/</loc>
-    <lastmod>2019-06-14T10:23:00+07:00</lastmod>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/</loc>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/</loc>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/devops/</loc>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/technical/</loc>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/terraform/</loc>
+    <lastmod>2019-06-30T11:03:00+07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/</loc>
     <lastmod>2019-06-14T10:23:00+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/</loc>
-    <lastmod>2019-06-14T10:23:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -58,19 +81,7 @@
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/devops/</loc>
-    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/categories/knife/</loc>
-    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/technical/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
     <priority>0</priority>
   </url>

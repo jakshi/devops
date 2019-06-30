@@ -44,10 +44,10 @@ side by side.
 * [brew](https://brew.sh/) package manager installed.
 * I use bash version 5.x, so if there will be any issues with bash scripts - check your bash version.
 
-# Upgrade from **terrafrom** 0.11 to 0.12 and from **terragrunt** 0.18 to 0.19
-Upgrade process from **terraform** 0.11 to **terrafrom** 0.12 and from **terragrunt** 0.18 to **terragrunt** 0.19 is described on terraform and terragrunt websites:
+# Upgrade from **terraform** 0.11 to 0.12 and from **terragrunt** 0.18 to 0.19
+Upgrade process from **terraform** 0.11 to **terraform** 0.12 and from **terragrunt** 0.18 to **terragrunt** 0.19 is described on terraform and terragrunt websites:
 
-* [Upgrade from terrafrom 0.11 to 0.12](https://www.terraform.io/upgrade-guides/0-12.html)
+* [Upgrade from terraform 0.11 to 0.12](https://www.terraform.io/upgrade-guides/0-12.html)
 * [Upgrade from terragrunt 0.18 to 0.19](https://github.com/gruntwork-io/terragrunt/blob/master/_docs/migration_guides/upgrading_to_terragrunt_0.19.x.md)
 
 You should just follow instructions to upgrade your **terraform**/**terragrunt** code.
@@ -70,7 +70,7 @@ mv terragrunt_darwin_amd64 terragrunt
 chmod 755 terragrunt
 ```
 
-# Install **terrafrom** 0.12 on MacOS X
+# Install **terraform** 0.12 on MacOS X
 
 ```
 brew install terraform
@@ -83,7 +83,7 @@ brew install terragrunt
 ```
 
 
-# Configure switching between **terrafrom** 0.11/**terragrunt** 0.18 to **terraform** 0.12/**terragrunt** 0.19 and back
+# Configure switching between **terraform** 0.11/**terragrunt** 0.18 to **terraform** 0.12/**terragrunt** 0.19 and back
 Now we need a convenient switching between to sets of **terraform**/**terragrunt**
 
 ## Prerequisites

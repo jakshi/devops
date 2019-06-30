@@ -86,8 +86,6 @@ brew install terragrunt
 # Configure switching between **terraform** 0.11/**terragrunt** 0.18 to **terraform** 0.12/**terragrunt** 0.19 and back
 Now we need a convenient switching between to sets of **terraform**/**terragrunt**
 
-## Prerequisites
-
 ```
 mkdir ~/.bash.d
 ```

@@ -14,7 +14,7 @@
   
 
   
-  <title>Upgrade bash on mac os x</title>
+  <title>Cloudflare&#39;s terraform provider authentication</title>
 
   
   
@@ -130,17 +130,17 @@
         
 
 <header>
-  <p class="meta">Jun 14, 2019
-     - 1 minute read 
-     - <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/#disqus_thread">Comments</a>
+  <p class="meta">Jul 8, 2019
+     - 2 minute read 
+     - <a href="//verydevops.com/blog/2019-07-08-cloudflares-terraform-provider-authentication/#disqus_thread">Comments</a>
 
     
     
-      - <a class="label" href="//verydevops.com/categories/announcement/">announcement </a>
+      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/terraform/">terraform </a><a class="label" href="//verydevops.com/categories/cloudflare/">cloudflare </a><a class="label" href="//verydevops.com/categories/devops/">devops </a>
     
   </p>
   <h1 class="entry-title">
-     Upgrade bash on mac os x 
+     Cloudflare&#39;s terraform provider authentication 
   </h1>
 </header>
 
@@ -151,32 +151,89 @@
           
           
 
-<h1 id="intro">Intro</h1>
+<!-- more -->
 
-<p>MacOS X has old 3.x bash.
-I found it&rsquo;s very uncomfortable, as it doesn&rsquo;t fit &gt;4.x bash on most linux host.
-So you need to remember where do you want to run your scripts:</p>
+<p>This is a guide how to configure authentication for cloudflare&rsquo;s terraform provider.</p>
 
-<ul>
-<li>on linux with bash &gt;4.x?</li>
-<li>on mac os x with bash 3.x?</li>
-</ul>
+<p>One of my colleagues mentioned that it&rsquo;s not exactly clear how to do that.</p>
 
-<p>So - why not upgrade.
-I found comprehenisve article here: <a href="https://itnext.io/upgrading-bash-on-macos-7138bd1066ba" target="_blank">Upgrading Bash on macOS</a></p>
+<p>This manual is describing experience with cloudflare&rsquo;s enterprise account, for other types of cloudflare&rsquo;s accounts your mileage may vary.</p>
 
-<p>And now:</p>
+<h1 id="add-cloudflare-provider-to-your-terraform-state">Add cloudflare provider to your terraform state</h1>
 
-<pre><code>$ bash --version
-GNU bash, version 5.0.2(1)-release (x86_64-apple-darwin18.2.0)
-Copyright (C) 2019 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+<p>Just put a file <strong>providers.tf</strong> to your terraform state folder:</p>
 
-This is free software; you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
+<pre><code>provider &quot;cloudflare&quot; {
+  version = &quot;~&gt; 1.15&quot;
+}
 </code></pre>
 
-<p>Much better.</p>
+<p>Version is optional - but I usually add it to avoid unexpected surprises.</p>
+
+<h1 id="get-your-credentials">Get your credentials</h1>
+
+<p>You will need:</p>
+
+<ul>
+<li>user&rsquo;s email: your cloudflare user email address</li>
+<li>user&rsquo;s API key</li>
+<li>organization&rsquo;s id</li>
+</ul>
+
+<h2 id="user-s-api-key">User&rsquo;s API key</h2>
+
+<ul>
+<li>login to your cloudflare account</li>
+<li>click on your user icon in top right corner of cloudflare user interface</li>
+<li>choose <strong>My Profile</strong></li>
+<li>Scroll to <strong>API Keys</strong></li>
+<li>You need <strong>Global API Key</strong></li>
+</ul>
+
+<h2 id="organization-s-id">Organization&rsquo;s ID</h2>
+
+<p>Probably there&rsquo;re easier ways to get cloudflare organization&rsquo;s id.
+But that is what I used.</p>
+
+<pre><code>sudo pip install cloudflare
+export CF_API_EMAIL=&quot;your@email.address&quot;
+export CF_API_KEY=&quot;your_api_key&quot;
+cli4 --get /user
+...
+    &quot;organizations&quot;: [
+        {
+          &quot;id&quot;: &quot;your_organization_id&quot;,
+...
+
+</code></pre>
+
+<h1 id="cloudflare-s-terraform-provider-authentication">Cloudflare&rsquo;s terraform provider authentication</h1>
+
+<p>Now you have user&rsquo;s email, user&rsquo;s API key and organization id.</p>
+
+<p>Just export those:</p>
+
+<pre><code>export CLOUDFLARE_EMAIL=&quot;your@email.address&quot;
+export CLOUDFLARE_TOKEN=&quot;your_api_key&quot;
+export CLOUDFLARE_ORG_ID=&quot;your_organization_id&quot;
+</code></pre>
+
+<p>I also add those exports to my <strong>~/.bash_profile</strong>.</p>
+
+<h1 id="final-words">Final words</h1>
+
+<p>That&rsquo;s all, you can start to configure your cloudflare account with terraform.</p>
+
+<pre><code>terraform init # Install all providers
+terraform plan # and here terraform will try to connect to cloudflare.
+</code></pre>
+
+<h1 id="references">References</h1>
+
+<ul>
+<li><a href="https://www.terraform.io/docs/providers/cloudflare/index.html" target="_blank">Terraform docs: Cloudflare Provider</a></li>
+<li><a href="https://github.com/cloudflare/python-cloudflare" target="_blank">Python wrapper for the Cloudflare Client API v4</a></li>
+</ul>
 
         </div>
         
@@ -185,7 +242,7 @@ There is NO WARRANTY, to the extent permitted by law.
   <p class="meta">
     <span class="byline author vcard">Posted by <span class="fn">Kostiantyn Lysenko</span></span>
     
-    <time>Jun 14, 2019</time>
+    <time>Jul 8, 2019</time>
     
     </span>
   </p>
@@ -194,11 +251,9 @@ There is NO WARRANTY, to the extent permitted by law.
 
   <p class="meta">
     
-        <a class="basic-alignment left" href="//verydevops.com/blog/2019-06-10-reopen-devops-blog/" title="Reopen DevOps blog">Reopen DevOps blog</a>
+        <a class="basic-alignment left" href="//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/" title="Terraform 0.11 and 0.12 side-by-side">Terraform 0.11 and 0.12 side-by-side</a>
     
 
-    
-      <a class="basic-alignment right" href="//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/" title="Terraform 0.11 and 0.12 side-by-side">Terraform 0.11 and 0.12 side-by-side</a>
     
   </p>
   

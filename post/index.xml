@@ -6,10 +6,23 @@
     <description>Recent content in Posts on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jun 2019 11:03:00 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 14:29:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cloudflare&#39;s terraform provider authentication</title>
+      <link>//verydevops.com/blog/2019-07-08-cloudflares-terraform-provider-authentication/</link>
+      <pubDate>Mon, 08 Jul 2019 14:29:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/blog/2019-07-08-cloudflares-terraform-provider-authentication/</guid>
+      <description>This is a guide how to configure authentication for cloudflare&amp;rsquo;s terraform provider.
+One of my colleagues mentioned that it&amp;rsquo;s not exactly clear how to do that.
+This manual is describing experience with cloudflare&amp;rsquo;s enterprise account, for other types of cloudflare&amp;rsquo;s accounts your mileage may vary.
+Add cloudflare provider to your terraform state Just put a file providers.tf to your terraform state folder:
+provider &amp;quot;cloudflare&amp;quot; { version = &amp;quot;~&amp;gt; 1.15&amp;quot; }  Version is optional - but I usually add it to avoid unexpected surprises.</description>
+    </item>
     
     <item>
       <title>Terraform 0.11 and 0.12 side-by-side</title>

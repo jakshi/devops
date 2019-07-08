@@ -6,15 +6,24 @@
     <description>Recent content in Categories on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jun 2019 11:03:00 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jul 2019 14:29:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>cloudflare</title>
+      <link>//verydevops.com/categories/cloudflare/</link>
+      <pubDate>Mon, 08 Jul 2019 14:29:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/categories/cloudflare/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>devops</title>
       <link>//verydevops.com/categories/devops/</link>
-      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      <pubDate>Mon, 08 Jul 2019 14:29:00 +0700</pubDate>
       
       <guid>//verydevops.com/categories/devops/</guid>
       <description></description>
@@ -23,7 +32,7 @@
     <item>
       <title>technical</title>
       <link>//verydevops.com/categories/technical/</link>
-      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      <pubDate>Mon, 08 Jul 2019 14:29:00 +0700</pubDate>
       
       <guid>//verydevops.com/categories/technical/</guid>
       <description></description>
@@ -32,7 +41,7 @@
     <item>
       <title>terraform</title>
       <link>//verydevops.com/categories/terraform/</link>
-      <pubDate>Sun, 30 Jun 2019 11:03:00 +0700</pubDate>
+      <pubDate>Mon, 08 Jul 2019 14:29:00 +0700</pubDate>
       
       <guid>//verydevops.com/categories/terraform/</guid>
       <description></description>

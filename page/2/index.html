@@ -135,6 +135,37 @@
         
 
 <header>
+  <p class="meta">Jan 25, 2014
+     - 1 minute read 
+     - <a href="//verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/git/">git </a><a class="label" href="//verydevops.com/categories/amazon/">amazon </a><a class="label" href="//verydevops.com/categories/ruby/">ruby </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="//verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/">Rewriting your email in git commits</a>
+  </h1>
+</header>
+
+        
+          <p>Sometimes you need to rewrite your email in your commits in some git repository. Do it with command:
+git filter-branch --env-filter 'if [ $GIT_AUTHOR_EMAIL = bad@email ]; then GIT_AUTHOR_EMAIL=correct@email; fi; export GIT_AUTHOR_EMAIL'  For your collaborators this operatioin might be dangerous. According to Jakub Narębski collaborators will need to:
+ if they didn&rsquo;t base their work on history pre-rewrite, just git reset --hard origin/master or just git pull origin (which should fast-forward).</p>
+          
+            <footer>
+              <a href="//verydevops.com/blog/2014-01-25-rewriting-your-email-in-git-commits/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
+      
+      <article>
+        
+        
+
+<header>
   <p class="meta">Jun 16, 2013
      - 1 minute read 
      - <a href="//verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/#disqus_thread">Comments</a>
@@ -333,11 +364,17 @@ c = Fog::Compute.new(
           
           
             
+          
+            
               <li class="post">
-                <a href="//verydevops.com/blog/2019-07-08-cloudflares-terraform-provider-authentication/">Cloudflare&#39;s terraform provider authentication</a>
+                <a href="//verydevops.com/blog/2019-08-08-terraform-0.12.6-map-resources-import/">Terraform &gt;= 0.12.6 map resources import</a>
               </li>
             
           
+            
+              <li class="post">
+                <a href="//verydevops.com/blog/2019-07-08-cloudflares-terraform-provider-authentication/">Cloudflare&#39;s terraform provider authentication</a>
+              </li>
             
           
             
@@ -349,12 +386,6 @@ c = Fog::Compute.new(
             
               <li class="post">
                 <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/">Upgrade bash on mac os x</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="//verydevops.com/blog/2019-06-10-reopen-devops-blog/">Reopen DevOps blog</a>
               </li>
             
           

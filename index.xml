@@ -6,10 +6,22 @@
     <description>Recent content on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2019 14:29:00 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2019 22:01:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Terraform &gt;= 0.12.6 map resources import</title>
+      <link>//verydevops.com/blog/2019-08-08-terraform-0.12.6-map-resources-import/</link>
+      <pubDate>Thu, 08 Aug 2019 22:01:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/blog/2019-08-08-terraform-0.12.6-map-resources-import/</guid>
+      <description>Intro In terraform 0.12.6 developers added a nice feature - Multiple Resource Instances Defined By a Map
+So now we can create multiple resources and then safely delete one in the middle of map (that was a bit of a pain with lists).
+But how to import new map resources? I&amp;rsquo;ll show on example of import with hypotetical DNS module for AWS Route53 record:
+terraform import module.my_domain_com_dns.aws_route53_record.soa[\&amp;quot;@\&amp;quot;] DOMAINZONEID_mydomain.com_SOA  The most non-obvious part is escaping, so if you map key is @ you will need to escape it: \&amp;quot;@\&amp;quot;</description>
+    </item>
     
     <item>
       <title>Cloudflare&#39;s terraform provider authentication</title>

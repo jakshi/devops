@@ -6,10 +6,23 @@
     <description>Recent content in technical on Yet another one DevOps blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Aug 2019 22:01:00 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 21 Sep 2019 19:01:00 +0700</lastBuildDate>
     
 	<atom:link href="//verydevops.com/categories/technical/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MySQL/Percona 5.7&#43; and indefinitely growing temporary tables on the disk</title>
+      <link>//verydevops.com/blog/2019-09-21-mysql/percona-5.7-and-indefinitely-growing-temporary-tables-on-the-disk/</link>
+      <pubDate>Sat, 21 Sep 2019 19:01:00 +0700</pubDate>
+      
+      <guid>//verydevops.com/blog/2019-09-21-mysql/percona-5.7-and-indefinitely-growing-temporary-tables-on-the-disk/</guid>
+      <description>Some time ago I saw an alert in our monitoring, The alert notified that production MySQL/Percona server had less than 10% of disk space left.
+I was worried and curious - where did a 300 GB of free space go? And started to investigate the issue.
+I found huge MySQL temporary table on the disk.
+Issue was fixed by restarting MySQL server (temporary table become small again).
+Incident was serious enough to have a post-mortem.</description>
+    </item>
     
     <item>
       <title>Terraform &gt;= 0.12.6 map resources import</title>

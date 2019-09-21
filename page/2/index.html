@@ -38,7 +38,7 @@
   <meta name="author" content="Kostiantyn Lysenko">
 
   
-  <meta name="generator" content="Hugo 0.55.6" />
+  <meta name="generator" content="Hugo 0.57.2" />
 
   
   
@@ -129,6 +129,43 @@
   <div id="content">
     <div class="blog-index">
       
+      
+      <article>
+        
+        
+
+<header>
+  <p class="meta">Apr 24, 2014
+     - 4 minute read 
+     - <a href="//verydevops.com/blog/2014-04-24-backup-gem-and-chef/#disqus_thread">Comments</a>
+
+    
+    
+      - <a class="label" href="//verydevops.com/categories/technical/">technical </a><a class="label" href="//verydevops.com/categories/aws/">aws </a><a class="label" href="//verydevops.com/categories/amazon/">amazon </a><a class="label" href="//verydevops.com/categories/chef/">chef </a><a class="label" href="//verydevops.com/categories/devops/">devops </a><a class="label" href="//verydevops.com/categories/ruby/">ruby </a><a class="label" href="//verydevops.com/categories/backup/">backup </a>
+    
+  </p>
+  <h1 class="entry-title">
+    <a href="//verydevops.com/blog/2014-04-24-backup-gem-and-chef/">Backup gem and Chef</a>
+  </h1>
+</header>
+
+        
+          <p><h1 id="intro">Intro</h1>
+
+<ul>
+<li>There&rsquo;s a nice tool for doing fast and easy backup to AWS S3: <a href="http://meskyanichi.github.io/backup/" target="_blank">backup gem</a></li>
+<li>There should be done a lot of steps for setup a backup though.</li>
+<li>So it could be automated with chef.</li>
+<li>In this article I&rsquo;ll write log of creation backup gem&rsquo;s cookbook.</li>
+<li>Essentially this cookbook will install backup gem, that will backup /var/www folder to AWS S3 every day in 01:00. It will store last 14 backups.</li>
+</ul></p>
+          
+            <footer>
+              <a href="//verydevops.com/blog/2014-04-24-backup-gem-and-chef/" rel="full-article">Read on  &rarr;</a>
+            </footer>
+          
+        
+      </article>
       
       <article>
         
@@ -364,6 +401,12 @@ c = Fog::Compute.new(
           
           
             
+              <li class="post">
+                <a href="//verydevops.com/blog/2019-09-21-mysql/percona-5.7-and-indefinitely-growing-temporary-tables-on-the-disk/">MySQL/Percona 5.7&#43; and indefinitely growing temporary tables on the disk</a>
+              </li>
+            
+          
+            
           
             
               <li class="post">
@@ -380,12 +423,6 @@ c = Fog::Compute.new(
             
               <li class="post">
                 <a href="//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/">Terraform 0.11 and 0.12 side-by-side</a>
-              </li>
-            
-          
-            
-              <li class="post">
-                <a href="//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/">Upgrade bash on mac os x</a>
               </li>
             
           

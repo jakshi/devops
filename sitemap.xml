@@ -4,14 +4,57 @@
   
   <url>
     <loc>//verydevops.com/categories/</loc>
-    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/mysql/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/blog/2019-09-21-mysql/percona-5.7-and-indefinitely-growing-temporary-tables-on-the-disk/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/percona/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/pitfalls/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
   </url>
   
   <url>
     <loc>//verydevops.com/post/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/systems/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/technical/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/</loc>
+    <lastmod>2019-09-21T19:01:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/devops/</loc>
     <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/terraform/</loc>
+    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
   </url>
   
   <url>
@@ -20,27 +63,8 @@
   </url>
   
   <url>
-    <loc>//verydevops.com/</loc>
-    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/devops/</loc>
-    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/technical/</loc>
-    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/terraform/</loc>
-    <lastmod>2019-08-08T22:01:00+07:00</lastmod>
-    <priority>0</priority>
+    <loc>//verydevops.com/categories/cloudflare/</loc>
+    <lastmod>2019-07-08T14:29:00+07:00</lastmod>
   </url>
   
   <url>
@@ -49,25 +73,18 @@
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/cloudflare/</loc>
-    <lastmod>2019-07-08T14:29:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/blog/2019-06-30-terraform-0.11-and-0.12-side-by-side/</loc>
     <lastmod>2019-06-30T11:03:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/</loc>
+    <loc>//verydevops.com/categories/announcement/</loc>
     <lastmod>2019-06-14T10:23:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/announcement/</loc>
+    <loc>//verydevops.com/blog/2019-06-14-upgrade-bash-on-mac-os-x/</loc>
     <lastmod>2019-06-14T10:23:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -86,31 +103,28 @@
   </url>
   
   <url>
+    <loc>//verydevops.com/categories/chef/</loc>
+    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//verydevops.com/blog/2014-11-21-chef-shortcuts/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/chef/</loc>
-    <lastmod>2014-11-21T13:16:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/categories/knife/</loc>
     <lastmod>2014-11-21T13:16:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
-    <lastmod>2014-07-14T00:13:00+07:00</lastmod>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/git/</loc>
     <lastmod>2014-07-14T00:13:00+07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/blog/2014-07-14-manage-aws-elastic-ips-with-aws-ruby-sdk/</loc>
+    <lastmod>2014-07-14T00:13:00+07:00</lastmod>
   </url>
   
   <url>
@@ -121,7 +135,6 @@
   <url>
     <loc>//verydevops.com/categories/serverspec/</loc>
     <lastmod>2014-05-12T01:45:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -132,19 +145,31 @@
   <url>
     <loc>//verydevops.com/categories/cookiecutter/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/python/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/template/</loc>
     <lastmod>2014-05-03T01:21:00+07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/amazon/</loc>
+    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/aws/</loc>
+    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/categories/backup/</loc>
+    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
   </url>
   
   <url>
@@ -153,27 +178,8 @@
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/amazon/</loc>
-    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/aws/</loc>
-    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//verydevops.com/categories/backup/</loc>
-    <lastmod>2014-04-24T12:48:00+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/categories/ruby/</loc>
     <lastmod>2014-04-24T12:48:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -182,32 +188,28 @@
   </url>
   
   <url>
-    <loc>//verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</loc>
-    <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/categories/network/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/notes/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//verydevops.com/blog/2013-06-16-resolving-nf_conntrack-table-full-dropping-packet-messages/</loc>
+    <lastmod>2013-06-16T13:55:00+07:00</lastmod>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/sysadmin/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>//verydevops.com/categories/sysctl/</loc>
     <lastmod>2013-06-16T13:55:00+07:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -216,19 +218,17 @@
   </url>
   
   <url>
+    <loc>//verydevops.com/categories/fog/</loc>
+    <lastmod>2013-06-03T19:25:54+07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//verydevops.com/blog/2013-06-03-manage-aws-elastic-ips-with-fog/</loc>
     <lastmod>2013-06-03T19:25:54+07:00</lastmod>
   </url>
   
   <url>
-    <loc>//verydevops.com/categories/fog/</loc>
-    <lastmod>2013-06-03T19:25:54+07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//verydevops.com/tags/</loc>
-    <priority>0</priority>
   </url>
   
 </urlset>
